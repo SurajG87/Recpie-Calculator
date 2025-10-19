@@ -38,15 +38,26 @@
         }
 
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%23667eea"/><circle cx="80" cy="80" r="60" fill="%23e74c3c" opacity="0.7"/><circle cx="300" cy="120" r="50" fill="%23f39c12" opacity="0.7"/><circle cx="200" cy="300" r="70" fill="%2327ae60" opacity="0.7"/><circle cx="320" cy="280" r="40" fill="%23f1c40f" opacity="0.7"/><circle cx="120" cy="220" r="45" fill="%239b59b6" opacity="0.7"/></svg>');
+            background-size: cover;
+            background-position: center;
             min-height: 100vh;
             padding: 15px;
             color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main-container {
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
+            width: 100%;
         }
 
         .main-card {
@@ -76,8 +87,8 @@
         }
 
         .animated-logo {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             position: relative;
             filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
         }
@@ -88,11 +99,11 @@
         }
 
         .apple {
-            width: 32px;
-            height: 32px;
+            width: 26px;
+            height: 26px;
             background: #e74c3c;
-            top: 24px;
-            left: 24px;
+            top: 20px;
+            left: 20px;
             animation: float 3s ease-in-out infinite;
         }
 
@@ -104,7 +115,7 @@
             background: #27ae60;
             border-radius: 50%;
             top: -3px;
-            left: 13px;
+            left: 10px;
         }
 
         .apple::after {
@@ -114,16 +125,16 @@
             height: 8px;
             background: #8b4513;
             top: -8px;
-            left: 14px;
+            left: 11px;
             transform: rotate(20deg);
         }
 
         .orange {
-            width: 28px;
-            height: 28px;
+            width: 22px;
+            height: 22px;
             background: #f39c12;
-            top: 48px;
-            right: 32px;
+            top: 40px;
+            right: 26px;
             animation: float 3.5s ease-in-out infinite 0.5s;
         }
 
@@ -134,16 +145,16 @@
             height: 5px;
             background: #e67e22;
             border-radius: 50%;
-            top: 6px;
-            left: 6px;
+            top: 5px;
+            left: 5px;
         }
 
         .lemon {
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             background: #f1c40f;
-            bottom: 32px;
-            left: 40px;
+            bottom: 26px;
+            left: 33px;
             animation: float 4s ease-in-out infinite 1s;
         }
 
@@ -154,8 +165,8 @@
             height: 4px;
             background: #f39c12;
             border-radius: 50%;
-            top: 5px;
-            left: 5px;
+            top: 4px;
+            left: 4px;
         }
 
         .knife {
@@ -165,10 +176,10 @@
         }
 
         .knife-1 {
-            width: 48px;
-            height: 6px;
-            top: 40px;
-            left: 48px;
+            width: 40px;
+            height: 5px;
+            top: 33px;
+            left: 40px;
             transform: rotate(45deg);
             animation: rotate 8s linear infinite;
         }
@@ -177,17 +188,17 @@
             content: "";
             position: absolute;
             width: 16px;
-            height: 6px;
+            height: 5px;
             background: #7f8c8d;
             border-radius: 2px 0 0 2px;
             left: -16px;
         }
 
         .knife-2 {
-            width: 40px;
-            height: 5px;
-            bottom: 40px;
-            right: 40px;
+            width: 33px;
+            height: 4px;
+            bottom: 33px;
+            right: 33px;
             transform: rotate(-30deg);
             animation: rotate 7s linear infinite reverse;
         }
@@ -196,7 +207,7 @@
             content: "";
             position: absolute;
             width: 12px;
-            height: 5px;
+            height: 4px;
             background: #7f8c8d;
             border-radius: 2px 0 0 2px;
             left: -12px;
@@ -205,13 +216,13 @@
         .header h1 {
             color: var(--secondary);
             margin-bottom: 8px;
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
         }
 
         .header p {
             color: #7f8c8d;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
         }
 
@@ -226,12 +237,12 @@
 
         .tab {
             flex: 1;
-            padding: 12px 8px;
+            padding: 10px 6px;
             text-align: center;
             cursor: pointer;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 14px;
+            font-size: 12px;
             transition: all 0.3s;
             display: flex;
             align-items: center;
@@ -252,14 +263,14 @@
 
         .section {
             margin-bottom: 20px;
-            padding: 18px;
+            padding: 15px;
             background: rgba(248, 249, 250, 0.8);
             border-radius: 12px;
             border: 1px solid rgba(225, 232, 237, 0.5);
         }
 
         .section-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             color: var(--secondary);
             margin-bottom: 12px;
@@ -279,15 +290,15 @@
             margin-bottom: 6px;
             font-weight: 600;
             color: var(--secondary);
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .input-group input, .input-group select {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             border: 2px solid #e1e8ed;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             transition: all 0.3s;
             background: white;
         }
@@ -304,19 +315,29 @@
 
         .ingredient-item {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            gap: 6px;
             margin-bottom: 10px;
             align-items: stretch;
         }
 
         .ingredient-input {
-            flex: 1;
-            padding: 10px;
+            padding: 8px;
             border: 2px solid #e1e8ed;
             border-radius: 6px;
-            font-size: 14px;
+            font-size: 13px;
             background: white;
+        }
+
+        .ingredient-name {
+            flex: 3; /* Made the name field the largest */
+        }
+
+        .ingredient-quantity {
+            width: 60px; /* Made quantity field smaller */
+        }
+
+        .ingredient-unit {
+            width: 80px; /* Made unit field smaller */
         }
 
         .bin-btn {
@@ -324,7 +345,7 @@
             border: none;
             cursor: pointer;
             color: var(--accent);
-            font-size: 16px;
+            font-size: 14px;
             padding: 8px;
             border-radius: 4px;
             transition: all 0.3s;
@@ -338,10 +359,10 @@
 
         .btn {
             width: 100%;
-            padding: 14px;
+            padding: 12px;
             border: none;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -389,12 +410,12 @@
 
         .method-btn {
             flex: 1;
-            padding: 12px;
+            padding: 10px;
             border: 2px solid var(--primary);
             background: white;
             color: var(--primary);
             border-radius: 8px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -414,12 +435,12 @@
         }
 
         .dilution-btn {
-            padding: 12px 6px;
+            padding: 10px 4px;
             border: 2px solid var(--success);
             background: white;
             color: var(--success);
             border-radius: 8px;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -435,7 +456,7 @@
         .image-style-results {
             background: white;
             border-radius: 12px;
-            padding: 20px;
+            padding: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             border: 1px solid #e1e8ed;
             font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -444,7 +465,7 @@
         }
 
         .results-title {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             text-align: center;
             margin-bottom: 8px;
@@ -452,17 +473,17 @@
         }
 
         .recipe-name {
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 600;
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #3498db;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         .scaled-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             margin-bottom: 12px;
             color: #2c3e50;
@@ -472,8 +493,9 @@
         .ingredient-row {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 6px 0;
             border-bottom: 1px solid #eee;
+            font-size: 13px;
         }
 
         .ingredient-row:last-child {
@@ -483,23 +505,21 @@
         .ingredient-name {
             font-weight: 500;
             color: #2c3e50;
-            font-size: 14px;
         }
 
         .ingredient-amount {
             font-weight: 600;
             color: #e74c3c;
-            font-size: 14px;
         }
 
         .divider {
             height: 1px;
             background: #ddd;
-            margin: 16px 0;
+            margin: 12px 0;
         }
 
         .total-volume {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 6px;
             display: flex;
@@ -507,7 +527,7 @@
         }
 
         .servings-info {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 600;
             margin-bottom: 6px;
             display: flex;
@@ -523,8 +543,8 @@
         .action-buttons {
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 8px;
+            margin-top: 15px;
         }
 
         .action-buttons .btn {
@@ -546,13 +566,14 @@
         }
 
         .library-item {
-            padding: 12px;
+            padding: 10px;
             border-bottom: 1px solid #eee;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s;
+            font-size: 13px;
         }
 
         .library-item:hover {
@@ -570,8 +591,8 @@
             background: none;
             border: none;
             cursor: pointer;
-            font-size: 14px;
-            padding: 5px 8px;
+            font-size: 12px;
+            padding: 4px 6px;
             border-radius: 4px;
             transition: background 0.3s;
         }
@@ -585,7 +606,7 @@
         }
 
         .info-text {
-            font-size: 11px;
+            font-size: 10px;
             color: #7f8c8d;
             margin-top: 4px;
             font-style: italic;
@@ -593,9 +614,9 @@
 
         .attribution {
             text-align: center;
-            margin-top: 25px;
-            padding: 12px;
-            font-size: 12px;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 11px;
             color: #7f8c8d;
             border-top: 1px solid rgba(225, 232, 237, 0.5);
         }
@@ -646,160 +667,24 @@
                 padding: 20px;
             }
             
+            .main-container {
+                max-width: 400px;
+            }
+            
             .card-content {
-                padding: 30px;
+                padding: 25px;
             }
             
             .header {
                 flex-direction: row;
-                margin-bottom: 30px;
-                padding: 20px 0;
-                gap: 20px;
-            }
-            
-            .animated-logo {
-                width: 150px;
-                height: 150px;
-            }
-            
-            .apple {
-                width: 40px;
-                height: 40px;
-                top: 30px;
-                left: 30px;
-            }
-            
-            .apple::before {
-                width: 8px;
-                height: 8px;
-                top: -4px;
-                left: 16px;
-            }
-            
-            .apple::after {
-                width: 4px;
-                height: 10px;
-                top: -10px;
-                left: 18px;
-            }
-            
-            .orange {
-                width: 35px;
-                height: 35px;
-                top: 60px;
-                right: 40px;
-            }
-            
-            .lemon {
-                width: 30px;
-                height: 30px;
-                bottom: 40px;
-                left: 50px;
-            }
-            
-            .knife-1 {
-                width: 60px;
-                height: 8px;
-                top: 50px;
-                left: 60px;
-            }
-            
-            .knife-2 {
-                width: 50px;
-                height: 6px;
-                bottom: 50px;
-                right: 50px;
-            }
-            
-            .header h1 {
-                font-size: 28px;
-            }
-            
-            .header p {
-                font-size: 16px;
-            }
-            
-            .app-container {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 30px;
-            }
-            
-            .section {
-                padding: 20px;
                 margin-bottom: 25px;
-            }
-            
-            .section-title {
-                font-size: 18px;
-                margin-bottom: 15px;
-            }
-            
-            .input-group label {
-                font-size: 14px;
-            }
-            
-            .ingredient-item {
-                flex-direction: row;
-            }
-            
-            .scaling-methods {
-                flex-direction: row;
-            }
-            
-            .action-buttons {
-                flex-direction: row;
-            }
-            
-            .library-list {
-                max-height: 400px;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 360px) {
-            .card-content {
-                padding: 15px;
+                padding: 15px 0;
+                gap: 15px;
             }
             
             .animated-logo {
                 width: 100px;
                 height: 100px;
-            }
-            
-            .apple {
-                width: 26px;
-                height: 26px;
-                top: 20px;
-                left: 20px;
-            }
-            
-            .orange {
-                width: 22px;
-                height: 22px;
-                top: 40px;
-                right: 26px;
-            }
-            
-            .lemon {
-                width: 20px;
-                height: 20px;
-                bottom: 26px;
-                left: 33px;
-            }
-            
-            .knife-1 {
-                width: 40px;
-                height: 5px;
-                top: 33px;
-                left: 40px;
-            }
-            
-            .knife-2 {
-                width: 33px;
-                height: 4px;
-                bottom: 33px;
-                right: 33px;
             }
             
             .header h1 {
@@ -810,47 +695,83 @@
                 font-size: 12px;
             }
             
-            .tab {
+            .section {
+                padding: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .section-title {
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+            
+            .input-group label {
                 font-size: 12px;
-                padding: 10px 6px;
+            }
+            
+            .action-buttons {
+                flex-direction: row;
+            }
+            
+            .library-list {
+                max-height: 350px;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 360px) {
+            .card-content {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 18px;
+            }
+            
+            .header p {
+                font-size: 11px;
+            }
+            
+            .tab {
+                font-size: 11px;
+                padding: 8px 4px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="main-card">
-            <div class="card-content">
-                <!-- Header with Animated Fruits & Knives Logo -->
-                <div class="header">
-                    <div class="animated-logo">
-                        <div class="fruit apple"></div>
-                        <div class="fruit orange"></div>
-                        <div class="fruit lemon"></div>
-                        <div class="knife knife-1"></div>
-                        <div class="knife knife-2"></div>
+    <div class="main-container">
+        <div class="container">
+            <div class="main-card">
+                <div class="card-content">
+                    <!-- Header with Animated Fruits & Knives Logo -->
+                    <div class="header">
+                        <div class="animated-logo">
+                            <div class="fruit apple"></div>
+                            <div class="fruit orange"></div>
+                            <div class="fruit lemon"></div>
+                            <div class="knife knife-1"></div>
+                            <div class="knife knife-2"></div>
+                        </div>
+                        <div>
+                            <h1>Recipe Scaling Calculator</h1>
+                            <p>Scale your recipes for perfect batches every time</p>
+                        </div>
                     </div>
-                    <div>
-                        <h1>Recipe Scaling Calculator</h1>
-                        <p>Scale your recipes for perfect batches every time</p>
+                    
+                    <!-- Tab Navigation -->
+                    <div class="tab-container">
+                        <div class="tab active" onclick="showTab('calculator')">
+                            <i class="fas fa-calculator"></i> Calculator
+                        </div>
+                        <div class="tab" onclick="showTab('library')">
+                            <i class="fas fa-book"></i> Library
+                        </div>
                     </div>
-                </div>
-                
-                <!-- Tab Navigation -->
-                <div class="tab-container">
-                    <div class="tab active" onclick="showTab('calculator')">
-                        <i class="fas fa-calculator"></i> Calculator
-                    </div>
-                    <div class="tab" onclick="showTab('library')">
-                        <i class="fas fa-book"></i> Library
-                    </div>
-                </div>
-                
-                <!-- Calculator Tab -->
-                <div id="calculator-tab" class="tab-content">
-                    <div class="app-container">
-                        <!-- Left Column: Input and Controls -->
-                        <div class="left-column">
+                    
+                    <!-- Calculator Tab -->
+                    <div id="calculator-tab" class="tab-content">
+                        <div class="app-container">
                             <!-- Recipe Input Section -->
                             <div class="section">
                                 <div class="section-title">
@@ -927,10 +848,7 @@
                                     <i class="fas fa-cocktail"></i> Calculate Scaled Recipe
                                 </button>
                             </div>
-                        </div>
-                        
-                        <!-- Right Column: Results -->
-                        <div class="right-column">
+                            
                             <!-- Results Section -->
                             <div class="section" id="resultsSection" style="display: none;">
                                 <div class="section-title">
@@ -974,36 +892,35 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Library Tab -->
-                <div id="library-tab" class="tab-content library-container">
-                    <div class="section">
-                        <div class="section-title">
-                            <i class="fas fa-book"></i>
-                            Recipe Library
-                        </div>
-                        
-                        <div class="library-list" id="libraryList">
-                            <!-- Saved recipes will appear here -->
+                    
+                    <!-- Library Tab -->
+                    <div id="library-tab" class="tab-content library-container">
+                        <div class="section">
+                            <div class="section-title">
+                                <i class="fas fa-book"></i>
+                                Recipe Library
+                            </div>
+                            
+                            <div class="library-list" id="libraryList">
+                                <!-- Saved recipes will appear here -->
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Attribution -->
-                <div class="attribution">
-                    <div>Copyright Beverage Solutions by Suraj</div>
-                    <div class="instagram-handle">
-                        <a href="https://www.instagram.com/suraj.gg87/" target="_blank">
-                            <i class="fab fa-instagram"></i> @suraj.gg87
-                        </a>
+                    
+                    <!-- Attribution -->
+                    <div class="attribution">
+                        <div>Copyright Beverage Solutions by Suraj</div>
+                        <div class="instagram-handle">
+                            <a href="https://www.instagram.com/suraj.gg87/" target="_blank">
+                                <i class="fab fa-instagram"></i> @suraj.gg87
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript remains the same as previous implementation -->
     <script>
         // Global variables
         let ingredients = [];
@@ -1045,10 +962,8 @@
             ingredientsList.innerHTML = '';
             ingredients = [];
             
-            // Add 4 empty ingredient slots
-            for (let i = 0; i < 4; i++) {
-                addIngredient();
-            }
+            // Add only 1 empty ingredient slot
+            addIngredient();
         }
 
         // Add new ingredient row
@@ -1058,17 +973,17 @@
             
             const ingredientHtml = `
                 <div class="ingredient-item" id="${ingredientId}">
-                    <input type="text" class="ingredient-input" placeholder="Ingredient name" oninput="updateIngredient('${ingredientId}', 'name', this.value)">
-                    <input type="number" class="ingredient-input" placeholder="Quantity" step="0.01" min="0" oninput="updateIngredient('${ingredientId}', 'quantity', this.value)">
-                    <select class="ingredient-input" onchange="updateIngredient('${ingredientId}', 'unit', this.value)">
-                        <option value="ml">Milliliters</option>
-                        <option value="dash">Dash</option>
-                        <option value="tsp">Teaspoon</option>
-                        <option value="tbsp">Tablespoon</option>
-                        <option value="cup">Cup</option>
-                        <option value="piece">Piece</option>
-                        <option value="slice">Slice</option>
-                        <option value="sprig">Sprig</option>
+                    <input type="text" class="ingredient-input ingredient-name" placeholder="Ingredient name" oninput="updateIngredient('${ingredientId}', 'name', this.value)">
+                    <input type="number" class="ingredient-input ingredient-quantity" placeholder="Qty" step="0.01" min="0" oninput="updateIngredient('${ingredientId}', 'quantity', this.value)">
+                    <select class="ingredient-input ingredient-unit" onchange="updateIngredient('${ingredientId}', 'unit', this.value)">
+                        <option value="ml">ml</option>
+                        <option value="dash">dash</option>
+                        <option value="tsp">tsp</option>
+                        <option value="tbsp">tbsp</option>
+                        <option value="cup">cup</option>
+                        <option value="piece">piece</option>
+                        <option value="slice">slice</option>
+                        <option value="sprig">sprig</option>
                     </select>
                     <button class="bin-btn" onclick="removeIngredient('${ingredientId}')">
                         <i class="fas fa-trash"></i>
@@ -1204,6 +1119,11 @@
             // Show/hide tab content
             document.getElementById('calculator-tab').style.display = tabName === 'calculator' ? 'block' : 'none';
             document.getElementById('library-tab').style.display = tabName === 'library' ? 'block' : 'none';
+            
+            // If showing library, refresh the list
+            if (tabName === 'library') {
+                loadSavedRecipes();
+            }
         }
 
         // Save recipe to library
@@ -1235,7 +1155,9 @@
             // Update library display
             loadSavedRecipes();
             
+            // Show success message and switch to library tab
             alert(`Recipe "${recipeName}" saved successfully!`);
+            showTab('library');
         }
 
         // Load saved recipes into the library
@@ -1254,7 +1176,7 @@
                         <button class="delete-btn" onclick="event.stopPropagation(); deleteRecipe('${id}')">
                             <i class="fas fa-trash"></i>
                         </button>
-                        <button class="btn btn-primary" style="width: auto; padding: 8px 12px; margin: 0 0 0 10px;" onclick="event.stopPropagation(); loadRecipe('${id}'); showTab('calculator')">
+                        <button class="btn btn-primary" style="width: auto; padding: 6px 10px; margin: 0 0 0 8px; font-size: 11px;" onclick="event.stopPropagation(); loadRecipe('${id}'); showTab('calculator')">
                             <i class="fas fa-edit"></i> Use
                         </button>
                     </div>
@@ -1287,17 +1209,17 @@
                 
                 const ingredientHtml = `
                     <div class="ingredient-item" id="${ingredientId}">
-                        <input type="text" class="ingredient-input" placeholder="Ingredient name" value="${ing.name}" oninput="updateIngredient('${ingredientId}', 'name', this.value)">
-                        <input type="number" class="ingredient-input" placeholder="Quantity" step="0.01" min="0" value="${ing.quantity}" oninput="updateIngredient('${ingredientId}', 'quantity', this.value)">
-                        <select class="ingredient-input" onchange="updateIngredient('${ingredientId}', 'unit', this.value)">
-                            <option value="ml" ${ing.unit === 'ml' ? 'selected' : ''}>Milliliters</option>
-                            <option value="dash">Dash</option>
-                            <option value="tsp">Teaspoon</option>
-                            <option value="tbsp">Tablespoon</option>
-                            <option value="cup">Cup</option>
-                            <option value="piece">Piece</option>
-                            <option value="slice">Slice</option>
-                            <option value="sprig">Sprig</option>
+                        <input type="text" class="ingredient-input ingredient-name" placeholder="Ingredient name" value="${ing.name}" oninput="updateIngredient('${ingredientId}', 'name', this.value)">
+                        <input type="number" class="ingredient-input ingredient-quantity" placeholder="Qty" step="0.01" min="0" value="${ing.quantity}" oninput="updateIngredient('${ingredientId}', 'quantity', this.value)">
+                        <select class="ingredient-input ingredient-unit" onchange="updateIngredient('${ingredientId}', 'unit', this.value)">
+                            <option value="ml" ${ing.unit === 'ml' ? 'selected' : ''}>ml</option>
+                            <option value="dash" ${ing.unit === 'dash' ? 'selected' : ''}>dash</option>
+                            <option value="tsp" ${ing.unit === 'tsp' ? 'selected' : ''}>tsp</option>
+                            <option value="tbsp" ${ing.unit === 'tbsp' ? 'selected' : ''}>tbsp</option>
+                            <option value="cup" ${ing.unit === 'cup' ? 'selected' : ''}>cup</option>
+                            <option value="piece" ${ing.unit === 'piece' ? 'selected' : ''}>piece</option>
+                            <option value="slice" ${ing.unit === 'slice' ? 'selected' : ''}>slice</option>
+                            <option value="sprig" ${ing.unit === 'sprig' ? 'selected' : ''}>sprig</option>
                         </select>
                         <button class="bin-btn" onclick="removeIngredient('${ingredientId}')">
                             <i class="fas fa-trash"></i>
