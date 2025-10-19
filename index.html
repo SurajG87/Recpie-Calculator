@@ -258,11 +258,11 @@
         .app-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px; /* Reduced gap between sections */
         }
 
         .section {
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin between sections */
             padding: 15px;
             background: rgba(248, 249, 250, 0.8);
             border-radius: 12px;
@@ -328,16 +328,19 @@
             background: white;
         }
 
+        /* Updated ingredient fields for balanced layout */
         .ingredient-name {
-            flex: 3; /* Made the name field the largest */
+            flex: 2;
+            min-width: 140px;
         }
 
         .ingredient-quantity {
-            width: 60px; /* Made quantity field smaller */
+            flex: 1;
+            text-align: center;
         }
 
         .ingredient-unit {
-            width: 80px; /* Made unit field smaller */
+            flex: 2;
         }
 
         .bin-btn {
@@ -350,6 +353,11 @@
             border-radius: 4px;
             transition: all 0.3s;
             align-self: center;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .bin-btn:hover {
@@ -384,12 +392,12 @@
         }
 
         .btn-secondary {
-            background: #95a5a6;
+            background: var(--primary); /* Changed to blue background */
             color: white;
         }
 
         .btn-secondary:hover {
-            background: #7f8c8d;
+            background: #2980b9; /* Darker blue on hover */
         }
 
         .btn-success {
@@ -697,7 +705,7 @@
             
             .section {
                 padding: 15px;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
             }
             
             .section-title {
@@ -735,6 +743,10 @@
             .tab {
                 font-size: 11px;
                 padding: 8px 4px;
+            }
+            
+            .ingredient-name {
+                min-width: 120px;
             }
         }
     </style>
@@ -802,10 +814,6 @@
                                         <i class="fas fa-plus"></i> Add Ingredient
                                     </button>
                                 </div>
-                                
-                                <button class="btn btn-success" onclick="saveToLibrary()">
-                                    <i class="fas fa-save"></i> Save to Library
-                                </button>
                             </div>
                             
                             <!-- Scale Recipe Section -->
