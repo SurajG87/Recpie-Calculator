@@ -2,928 +2,751 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Recipe Scaling Calculator</title>
-    
-    <!-- App Icon Meta Tags -->
-    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iMzAiIGZpbGw9IiMzNDk4REIiLz4KPGNpcmNsZSBjeD0iNjAiIGN5PSI2MCIgcj0iMjAiIGZpbGw9IiNlNzRDM0QiLz4KPGNpcmNsZSBjeD0iMTAwIiBjeT0iODAiIHI9IjE1IiBmaWxsPSIjZjM5QzEyIi8+CjxjaXJjbGUgY3g9IjgwIiBjeT0iMTEwIiByPSIxMiIgZmlsbD0iI2YxYzQwRiIvPgo8cmVjdCB4PSI1MCIgeT0iNjAiIHdpZHRoPSIyMCIgaGVpZ2h0PSI0IiByeD0iMiIgdHJhbnNmb3JtPSJyb3RhdGUoNDUgNTAgNjApIiBmaWxsPSIjY2NjIi8+CjxyZWN0IHg9IjEwMCIgeT0iMTAwIiB3aWR0aD0iMTUiIGhlaWdodD0iMyIgcng9IjEuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTMwIDEwMCAxMDApIiBmaWxsPSIjY2NjIi8+Cjwvc3ZnPg==">
-    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzM0OThEQiIvPgo8Y2lyY2xlIGN4PSIxMiIgY3k9IjEyIiByPSI0IiBmaWxsPSIjZTc0QzNEIi8+CjxjaXJjbGUgY3g9IjE4IiBjeT0iMTYiIHI9IjMiIGZpbGw9IiNmMzlDMTIiLz4KPGNpcmNsZSBjeD0iMTQiIGN5PSIyMCIgcj0iMi41IiBmaWxsPSIjZjFjNDBGIi8+CjxyZWN0IHg9IjEwIiB5PSIxMiIgd2lkdGg9IjQiIGhlaWdodD0iMSIgcng9IjAuNSIgdHJhbnNmb3JtPSJyb3RhdGUoNDUgMTAgMTIpIiBmaWxsPSIjY2NjIi8+Cjwvc3ZnPg==">
-    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiByeD0iMyIgZmlsbD0iIzM0OThEQiIvPgo8Y2lyY2xlIGN4PSI2IiBjeT0iNiIgcj0iMiIgZmlsbD0iI2U3NEMzRCIvPgo8Y2lyY2xlIGN4PSI5IiBjeT0iOCIgcj0iMS41IiBmaWxsPSIjZjM5QzEyIi8+CjxjaXJjbGUgY3g9IjciIGN5PSIxMCIgcj0iMSIgZmlsbD0iI2YxYzQwRiIvPgo8L3N2Zz4=">
-    
-    <!-- iOS Specific Meta Tags -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Recipe Scaler">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="#3498db">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch Cal - By suraj</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #FFB347;
+            --primary-dark: #FFA500;
+            --bg-dark: #0a0a0a;
+            --bg-card: #1a1a1a;
+            --text-light: #ffffff;
+            --text-gray: #9ca3af;
+            --border-light: rgba(255, 179, 71, 0.2);
+            --border-medium: rgba(255, 179, 71, 0.4);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        :root {
-            --primary: #3498db;
-            --secondary: #2c3e50;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --success: #27ae60;
-            --warning: #f39c12;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         body {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400"><rect width="400" height="400" fill="%230d3b1e"/><path d="M0,400 L400,400 L400,300 Q350,320 300,310 Q250,300 200,290 Q150,280 100,270 Q50,260 0,250 L0,400 Z" fill="%2315522d" opacity="0.8"/><path d="M0,350 L400,350 L400,250 Q350,270 300,260 Q250,250 200,240 Q150,230 100,220 Q50,210 0,200 L0,350 Z" fill="%231c5c2f" opacity="0.8"/><path d="M0,300 L400,300 L400,200 Q350,220 300,210 Q250,200 200,190 Q150,180 100,170 Q50,160 0,150 L0,300 Z" fill="%23236431" opacity="0.8"/><path d="M0,250 L400,250 L400,150 Q350,170 300,160 Q250,150 200,140 Q150,130 100,120 Q50,110 0,100 L0,250 Z" fill="%232a6d34" opacity="0.8"/><path d="M0,200 L400,200 L400,100 Q350,120 300,110 Q250,100 200,90 Q150,80 100,70 Q50,60 0,50 L0,200 Z" fill="%23317536" opacity="0.8"/><path d="M0,150 L400,150 L400,50 Q350,70 300,60 Q250,50 200,40 Q150,30 100,20 Q50,10 0,0 L0,150 Z" fill="%23387e39" opacity="0.8"/></svg>');
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            padding: 15px;
-            color: #333;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            touch-action: manipulation;
-        }
-
-        .main-container {
-            max-width: 400px;
-            width: 100%;
-            margin: 0 auto;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
-            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
+            flex: 1;
         }
 
-        .main-card {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+        /* Header Styles */
+        .header {
+            background: linear-gradient(to right, var(--bg-dark), var(--bg-card), var(--bg-dark));
+            border-bottom: 1px solid var(--border-light);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 16px 0;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(255, 179, 71, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
             position: relative;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .logo-icon:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 179, 71, 0.3);
+        }
+
+        .logo-icon:hover::after {
+            content: "Reset to start new recipe";
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            background: linear-gradient(to right, white, #d1d5db);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 14px;
+            gap: 8px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--border-medium);
+            color: var(--text-light);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 179, 71, 0.1);
+            border-color: var(--primary);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: black;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin-bottom: 24px;
+        }
+
+        .card-header {
+            border-bottom: 1px solid var(--border-light);
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-light);
         }
 
         .card-content {
             padding: 20px;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 25px;
-            padding: 15px 0;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .animated-logo {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.3));
-        }
-
-        .fruit {
-            position: absolute;
-            border-radius: 50%;
-        }
-
-        .apple {
-            width: 26px;
-            height: 26px;
-            background: #e74c3c;
-            top: 20px;
-            left: 20px;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .apple::before {
-            content: "";
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: #27ae60;
-            border-radius: 50%;
-            top: -3px;
-            left: 10px;
-        }
-
-        .apple::after {
-            content: "";
-            position: absolute;
-            width: 3px;
-            height: 8px;
-            background: #8b4513;
-            top: -8px;
-            left: 11px;
-            transform: rotate(20deg);
-        }
-
-        .orange {
-            width: 22px;
-            height: 22px;
-            background: #f39c12;
-            top: 40px;
-            right: 26px;
-            animation: float 3.5s ease-in-out infinite 0.5s;
-        }
-
-        .orange::before {
-            content: "";
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: #e67e22;
-            border-radius: 50%;
-            top: 5px;
-            left: 5px;
-        }
-
-        .lemon {
-            width: 20px;
-            height: 20px;
-            background: #f1c40f;
-            bottom: 26px;
-            left: 33px;
-            animation: float 4s ease-in-out infinite 1s;
-        }
-
-        .lemon::before {
-            content: "";
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #f39c12;
-            border-radius: 50%;
-            top: 4px;
-            left: 4px;
-        }
-
-        .knife {
-            position: absolute;
-            background: #bdc3c7;
-            border-radius: 2px;
-        }
-
-        .knife-1 {
-            width: 40px;
-            height: 5px;
-            top: 33px;
-            left: 40px;
-            transform: rotate(45deg);
-            animation: rotate 8s linear infinite;
-        }
-
-        .knife-1::before {
-            content: "";
-            position: absolute;
-            width: 16px;
-            height: 5px;
-            background: #7f8c8d;
-            border-radius: 2px 0 0 2px;
-            left: -16px;
-        }
-
-        .knife-2 {
-            width: 33px;
-            height: 4px;
-            bottom: 33px;
-            right: 33px;
-            transform: rotate(-30deg);
-            animation: rotate 7s linear infinite reverse;
-        }
-
-        .knife-2::before {
-            content: "";
-            position: absolute;
-            width: 12px;
-            height: 4px;
-            background: #7f8c8d;
-            border-radius: 2px 0 0 2px;
-            left: -12px;
-        }
-
-        .header h1 {
-            color: var(--secondary);
-            margin-bottom: 8px;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .header p {
-            color: #7f8c8d;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .tab-container {
-            display: flex;
+        /* Form Styles */
+        .form-group {
             margin-bottom: 20px;
-            background: rgba(248, 249, 250, 0.8);
-            border-radius: 12px;
-            padding: 4px;
-            border: 1px solid rgba(225, 232, 237, 0.5);
         }
 
-        .tab {
-            flex: 1;
-            padding: 10px 6px;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 12px;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .tab.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .app-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Reduced gap between sections */
-        }
-
-        .section {
-            margin-bottom: 15px; /* Reduced margin between sections */
-            padding: 15px;
-            background: rgba(248, 249, 250, 0.8);
-            border-radius: 12px;
-            border: 1px solid rgba(225, 232, 237, 0.5);
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--secondary);
-            margin-bottom: 12px;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .input-group {
-            margin-bottom: 12px;
-        }
-
-        .input-group label {
+        .form-label {
             display: block;
-            margin-bottom: 6px;
-            font-weight: 600;
-            color: var(--secondary);
-            font-size: 12px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
         }
 
-        .input-group input, .input-group select {
+        .form-input {
             width: 100%;
-            padding: 10px;
-            border: 2px solid #e1e8ed;
-            border-radius: 8px;
-            font-size: 16px; /* Increased for better mobile readability */
-            transition: all 0.3s;
-            background: white;
+            padding: 10px 12px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-medium);
+            border-radius: 6px;
+            color: var(--text-light);
+            font-size: 14px;
+            transition: all 0.3s ease;
         }
 
-        .input-group input:focus, .input-group select:focus {
+        .form-input:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.1);
+            box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.2);
         }
 
-        .ingredients-list {
-            margin: 12px 0;
-        }
-
-        .ingredient-item {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 10px;
-            align-items: stretch;
-        }
-
-        .ingredient-input {
-            padding: 8px;
-            border: 2px solid #e1e8ed;
-            border-radius: 6px;
-            font-size: 16px; /* Increased for better mobile readability */
-            background: white;
-        }
-
-        /* Updated ingredient fields for balanced layout */
-        .ingredient-name {
-            flex: 2;
-            min-width: 140px;
-        }
-
-        .ingredient-quantity {
-            flex: 1;
-            text-align: center;
-        }
-
-        .ingredient-unit {
-            flex: 2;
-        }
-
-        .bin-btn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: var(--accent);
-            font-size: 14px;
-            padding: 8px;
-            border-radius: 4px;
-            transition: all 0.3s;
-            align-self: center;
-            width: 36px;
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .bin-btn:hover {
-            background: rgba(231, 76, 60, 0.1);
-            transform: scale(1.1);
-        }
-
-        .btn {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary) 0%, #2980b9 100%);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(52, 152, 219, 0.4);
-        }
-
-        .btn-secondary {
-            background: var(--primary); /* Changed to blue background */
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #2980b9; /* Darker blue on hover */
-        }
-
-        .btn-success {
-            background: var(--success);
-            color: white;
-        }
-
-        .btn-success:hover {
-            background: #219653;
-        }
-
-        .scaling-methods {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .method-btn {
-            flex: 1;
-            padding: 10px;
-            border: 2px solid var(--primary);
-            background: white;
-            color: var(--primary);
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .method-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .dilution-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .dilution-btn {
-            padding: 10px 4px;
-            border: 2px solid var(--success);
-            background: white;
-            color: var(--success);
-            border-radius: 8px;
-            font-size: 10px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-
-        .dilution-btn.active {
-            background: var(--success);
-            color: white;
-        }
-
-        /* Image-style results */
-        .image-style-results {
-            background: white;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border: 1px solid #e1e8ed;
-            font-family: 'Helvetica Neue', Arial, sans-serif;
-            color: #333;
-            margin: 0 auto;
-        }
-
-        .results-title {
-            font-size: 16px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 8px;
-            color: #2c3e50;
-        }
-
-        .recipe-name {
-            font-size: 15px;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 15px;
-            color: #3498db;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .scaled-title {
-            font-size: 14px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: #2c3e50;
-            text-align: center;
+        .form-input::placeholder {
+            color: var(--text-gray);
         }
 
         .ingredient-row {
             display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 13px;
-        }
-
-        .ingredient-row:last-child {
-            border-bottom: none;
+            gap: 12px;
+            margin-bottom: 12px;
+            align-items: flex-end;
         }
 
         .ingredient-name {
-            font-weight: 500;
-            color: #2c3e50;
+            flex: 1;
         }
 
-        .ingredient-amount {
-            font-weight: 600;
-            color: #e74c3c;
+        .ingredient-quantity {
+            width: 100px;
         }
 
-        .divider {
-            height: 1px;
-            background: #ddd;
-            margin: 12px 0;
+        .ingredient-unit {
+            width: 120px;
         }
 
-        .total-volume {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
+        .ingredient-remove {
+            width: 40px;
+            height: 40px;
             display: flex;
-            justify-content: space-between;
-        }
-
-        .servings-info {
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 6px;
-            display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            color: var(--text-gray);
+            cursor: pointer;
+            border-radius: 6px;
         }
 
-        .total-volume-value, .servings-value {
-            font-weight: 700;
-            color: #e74c3c;
+        .ingredient-remove:hover {
+            color: var(--primary);
+            background-color: rgba(255, 179, 71, 0.1);
         }
 
-        .action-buttons {
+        /* Radio Group */
+        .radio-group {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-top: 15px;
+            gap: 12px;
         }
 
-        .action-buttons .btn {
-            flex: 1;
-            margin-bottom: 0;
-        }
-
-        .library-container {
-            display: none;
-        }
-
-        .library-list {
-            max-height: 300px;
-            overflow-y: auto;
-            border: 1px solid #e1e8ed;
+        .radio-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-light);
             border-radius: 8px;
-            padding: 10px;
-            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
-        .library-item {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
+        .radio-item:hover {
+            border-color: var(--border-medium);
+        }
+
+        .radio-input {
+            margin-top: 2px;
+            accent-color: var(--primary);
+        }
+
+        .radio-label {
+            flex: 1;
             cursor: pointer;
+        }
+
+        .radio-title {
+            font-weight: 500;
+            color: var(--text-light);
+            margin-bottom: 4px;
+        }
+
+        .radio-description {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Results Panel */
+        .results-panel {
+            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(255, 179, 71, 0.4);
+            overflow: hidden;
+        }
+
+        .results-header {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .results-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .results-content {
+            padding: 20px;
+        }
+
+        .results-section {
+            margin-bottom: 20px;
+        }
+
+        .results-section-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: black;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 12px;
+        }
+
+        .ingredient-result {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s;
-            font-size: 13px;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .ingredient-name {
+            color: black;
+        }
+
+        .ingredient-value {
+            color: black;
+            font-weight: 500;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-top: 2px solid rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+            color: black;
+        }
+
+        /* Library Styles */
+        .library-item {
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
         }
 
         .library-item:hover {
-            background: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow);
+            border-color: var(--border-medium);
         }
 
-        .library-item:last-child {
-            border-bottom: none;
+        .library-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
         }
 
-        .delete-btn {
-            color: var(--accent);
-            background: none;
-            border: none;
-            cursor: pointer;
+        .library-item-title {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+
+        .library-item-ingredients {
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .library-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn-danger {
+            background: transparent;
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            color: #f87171;
+        }
+
+        .btn-danger:hover {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-color: #ef4444;
+        }
+
+        /* Alert */
+        .alert {
+            padding: 12px 16px;
+            background-color: rgba(255, 179, 71, 0.2);
+            border: 1px solid var(--primary);
+            border-radius: 6px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        @media (min-width: 1024px) {
+            .grid-cols-2 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-gray);
+            font-size: 14px;
+        }
+
+        .footer-link {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .text-gray {
+            color: var(--text-gray);
+        }
+
+        .text-xs {
             font-size: 12px;
-            padding: 4px 6px;
-            border-radius: 4px;
-            transition: background 0.3s;
         }
 
-        .delete-btn:hover {
-            background: rgba(231, 76, 60, 0.1);
+        .text-sm {
+            font-size: 14px;
+        }
+
+        .w-full {
+            width: 100%;
+        }
+
+        .mt-4 {
+            margin-top: 16px;
+        }
+
+        .mb-4 {
+            margin-bottom: 16px;
+        }
+
+        .py-8 {
+            padding-top: 32px;
+            padding-bottom: 32px;
         }
 
         .hidden {
             display: none;
         }
 
-        .info-text {
-            font-size: 10px;
-            color: #7f8c8d;
-            margin-top: 4px;
-            font-style: italic;
+        .flex {
+            display: flex;
         }
 
-        .attribution {
-            text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            font-size: 11px;
-            color: #7f8c8d;
-            border-top: 1px solid rgba(225, 232, 237, 0.5);
-        }
-
-        .attribution a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .attribution a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-
-        .instagram-handle {
-            display: inline-flex;
+        .items-center {
             align-items: center;
-            gap: 4px;
-            margin-top: 4px;
         }
 
-        /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-8px); }
+        .justify-center {
+            justify-content: center;
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(45deg); }
-            100% { transform: rotate(405deg); }
+        .space-y-4 > * + * {
+            margin-top: 16px;
         }
 
-        /* Shaker animation */
-        @keyframes shake {
-            0%, 100% { transform: rotate(0deg); }
-            10%, 30%, 50%, 70%, 90% { transform: rotate(5deg); }
-            20%, 40%, 60%, 80% { transform: rotate(-5deg); }
-        }
-
-        .shaking {
-            animation: shake 0.5s ease-in-out;
-        }
-
-        /* Desktop Styles */
-        @media (min-width: 768px) {
-            body {
-                padding: 20px;
-            }
-            
-            .main-container {
-                max-width: 400px;
-            }
-            
-            .card-content {
-                padding: 25px;
-            }
-            
-            .header {
-                flex-direction: row;
-                margin-bottom: 25px;
-                padding: 15px 0;
-                gap: 15px;
-            }
-            
-            .animated-logo {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .header h1 {
-                font-size: 20px;
-            }
-            
-            .header p {
-                font-size: 12px;
-            }
-            
-            .section {
-                padding: 15px;
-                margin-bottom: 15px;
-            }
-            
-            .section-title {
-                font-size: 14px;
-                margin-bottom: 12px;
-            }
-            
-            .input-group label {
-                font-size: 12px;
-            }
-            
-            .action-buttons {
-                flex-direction: row;
-            }
-            
-            .library-list {
-                max-height: 350px;
-            }
-        }
-
-        /* Extra small devices */
-        @media (max-width: 360px) {
-            .card-content {
-                padding: 15px;
-            }
-            
-            .header h1 {
-                font-size: 18px;
-            }
-            
-            .header p {
-                font-size: 11px;
-            }
-            
-            .tab {
-                font-size: 11px;
-                padding: 8px 4px;
-            }
-            
-            .ingredient-name {
-                min-width: 120px;
-            }
+        .space-y-6 > * + * {
+            margin-top: 24px;
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
+    <div class="header">
         <div class="container">
-            <div class="main-card">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon" id="resetButton">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h1 class="logo-text">Batch Cal </h1>
+                </div>
+                <button class="btn btn-outline" id="libraryToggle">
+                    <i class="fas fa-book"></i>
+                    <span>Library</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container py-8">
+        <div id="saveAlert" class="alert hidden">
+            Recipe saved successfully!
+        </div>
+
+        <div id="resetAlert" class="alert hidden">
+            All fields cleared! Ready for a new recipe.
+        </div>
+
+        <div id="libraryView" class="hidden">
+            <div class="card">
+                <div class="card-header">
+                    <div class="flex items-center justify-between">
+                        <h2 class="card-title">
+                            <i class="fas fa-book"></i>
+                            Recipe Library
+                        </h2>
+                        <button class="btn btn-outline" id="closeLibrary">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
                 <div class="card-content">
-                    <!-- Header with Animated Fruits & Knives Logo -->
-                    <div class="header">
-                        <div class="animated-logo">
-                            <div class="fruit apple"></div>
-                            <div class="fruit orange"></div>
-                            <div class="fruit lemon"></div>
-                            <div class="knife knife-1"></div>
-                            <div class="knife knife-2"></div>
+                    <div id="emptyLibrary" class="text-center py-8">
+                        <div class="logo-icon mx-auto mb-4" style="background: rgba(255, 179, 71, 0.1);">
+                            <i class="fas fa-book text-primary"></i>
                         </div>
-                        <div>
-                            <h1>Recipe Scaling Calculator</h1>
-                            <p>Scale your recipes for perfect batches every time</p>
-                        </div>
+                        <h3 class="text-lg font-semibold text-white mb-2">No Saved Recipes</h3>
+                        <p class="text-gray text-sm">
+                            Create and save your first recipe to see it here
+                        </p>
                     </div>
-                    
-                    <!-- Tab Navigation -->
-                    <div class="tab-container">
-                        <div class="tab active" onclick="showTab('calculator', true)">
-                            <i class="fas fa-calculator"></i> Calculator
+                    <div id="libraryList" class="space-y-4 hidden"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="mainView">
+            <div class="grid grid-cols-2">
+                <!-- Left Column -->
+                <div class="space-y-6">
+                    <!-- Recipe Details Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Recipe Details</h2>
                         </div>
-                        <div class="tab" onclick="showTab('library')">
-                            <i class="fas fa-book"></i> Library
-                        </div>
-                    </div>
-                    
-                    <!-- Calculator Tab -->
-                    <div id="calculator-tab" class="tab-content">
-                        <div class="app-container">
-                            <!-- Recipe Input Section -->
-                            <div class="section">
-                                <div class="section-title">
-                                    <i class="fas fa-utensils"></i>
-                                    Recipe Input
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label for="recipeName">Enter Recipe Name</label>
-                                    <input type="text" id="recipeName" placeholder="e.g., Pina Salada">
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label>Original Servings</label>
-                                    <input type="number" id="originalServings" placeholder="e.g., 1" min="1" step="1" value="1">
-                                    <p class="info-text">How many servings does your original recipe make?</p>
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label>Add Ingredients</label>
-                                    <p class="info-text">Add all ingredients, specifying name, quantity, and unit.</p>
-                                    
-                                    <div class="ingredients-list" id="ingredientsList">
-                                        <!-- Ingredients will be added here dynamically -->
+                        <div class="card-content">
+                            <div class="form-group">
+                                <label class="form-label" for="recipeName">Enter Recipe Name</label>
+                                <input type="text" id="recipeName" class="form-input" placeholder="e.g., Negroni">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Add Ingredients</label>
+                                <p class="text-gray text-xs mb-4">
+                                    Add all ingredients, specifying name, quantity, and unit. Use the remove button to delete.
+                                </p>
+
+                                <div id="ingredientsList">
+                                    <div class="ingredient-row">
+                                        <div class="ingredient-name">
+                                            <input type="text" class="form-input" placeholder="Ingredient name">
+                                        </div>
+                                        <div class="ingredient-quantity">
+                                            <input type="number" step="0.1" class="form-input" placeholder="0">
+                                        </div>
+                                        <div class="ingredient-unit">
+                                            <select class="form-input">
+                                                <option value="Milliliters">Milliliters</option>
+                                                <option value="Grams">Grams</option>
+                                                <option value="Teaspoons">Teaspoons</option>
+                                                <option value="Dashes">Dashes</option>
+                                                <option value="Drops">Drops</option>
+                                            </select>
+                                        </div>
+                                        <button class="ingredient-remove" disabled>
+                                            <i class="fas fa-times"></i>
+                                        </button>
                                     </div>
-                                    
-                                    <button class="btn btn-secondary" onclick="addIngredient()">
-                                        <i class="fas fa-plus"></i> Add Ingredient
+                                </div>
+
+                                <div class="flex gap-2 mt-4">
+                                    <button class="btn btn-primary flex-1" id="addIngredient">
+                                        <i class="fas fa-plus"></i>
+                                        Add Ingredient
+                                    </button>
+                                    <button class="btn btn-outline flex-1" id="saveRecipe">
+                                        <i class="fas fa-save"></i>
+                                        Save Recipe
                                     </button>
                                 </div>
                             </div>
-                            
-                            <!-- Scale Recipe Section -->
-                            <div class="section">
-                                <div class="section-title">
-                                    <i class="fas fa-calculator"></i>
-                                    Scale Recipe
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label>STEP 1: CHOOSE SCALING METHOD</label>
-                                    <div class="scaling-methods">
-                                        <button class="method-btn active" onclick="setScalingMethod('servings')">Scale by Servings</button>
-                                        <button class="method-btn" onclick="setScalingMethod('volume')">Scale by Volume (mL)</button>
-                                    </div>
-                                    <p class="info-text" id="methodDescription">Choose this if you know how many servings you need.</p>
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label id="quantityLabel">STEP 2: ENTER QUANTITY</label>
-                                    <input type="number" id="scaleQuantity" placeholder="servings" min="1" step="1">
-                                </div>
-                                
-                                <div class="input-group">
-                                    <label>STEP 3: ADD DILUTION (OPTIONAL)</label>
-                                    <div class="dilution-options">
-                                        <button class="dilution-btn active" onclick="setDilution(0)">0% (No Dilution)</button>
-                                        <button class="dilution-btn" onclick="setDilution(18)">18% (Spirit-Driven)</button>
-                                        <button class="dilution-btn" onclick="setDilution(25)">25% (Shaken Cocktails)</button>
-                                        <button class="dilution-btn" onclick="setCustomDilution()">Custom Dilution</button>
-                                    </div>
-                                    <p class="info-text" id="dilutionDescription">Water added based on total drink volume percentage.</p>
-                                    
-                                    <div id="customDilutionGroup" class="hidden">
-                                        <input type="number" id="customDilution" placeholder="Enter dilution percentage" min="0" max="100" step="0.1">
-                                    </div>
-                                </div>
-                                
-                                <button class="btn btn-primary" onclick="calculateScaledRecipe()">
-                                    <i class="fas fa-cocktail"></i> Calculate Scaled Recipe
-                                </button>
-                            </div>
-                            
-                            <!-- Results Section -->
-                            <div class="section" id="resultsSection" style="display: none;">
-                                <div class="section-title">
-                                    <i class="fas fa-chart-bar"></i>
-                                    Scaled Recipe Results
-                                </div>
-                                
-                                <!-- Image-style Results Display -->
-                                <div class="image-style-results">
-                                    <div class="results-title">Calculate Scaled Recipe</div>
-                                    <div class="recipe-name" id="displayRecipeName">Recipe Name</div>
-                                    
-                                    <div class="scaled-title">SCALED INGREDIENTS</div>
-                                    
-                                    <div id="scaledIngredientsList">
-                                        <!-- Scaled ingredients will appear here -->
-                                    </div>
-                                    
-                                    <div class="divider"></div>
-                                    
-                                    <div class="total-volume">
-                                        <span>Total Volume</span>
-                                        <span class="total-volume-value" id="displayTotalVolume">0.0 ml</span>
-                                    </div>
-                                    
-                                    <div class="servings-info">
-                                        <span>This batch produces</span>
-                                        <span class="servings-value" id="displayServings">0</span>
-                                        <span>servings</span>
-                                    </div>
-                                    
-                                    <div class="action-buttons">
-                                        <button class="btn btn-primary" onclick="shareRecipe()">
-                                            <i class="fas fa-share-alt"></i> Share Recipe
-                                        </button>
-                                        <button class="btn btn-success" onclick="saveToLibrary()">
-                                            <i class="fas fa-save"></i> Save to Library
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
-                    
-                    <!-- Library Tab -->
-                    <div id="library-tab" class="tab-content library-container">
-                        <div class="section">
-                            <div class="section-title">
-                                <i class="fas fa-book"></i>
-                                Recipe Library
+
+                    <!-- Scale Recipe Card -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Scale Recipe</h2>
+                        </div>
+                        <div class="card-content">
+                            <!-- Step 1: Choose Scaling Method -->
+                            <div class="form-group">
+                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
+                                    Step 1: Choose Scaling Method
+                                </h3>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="scalingMethod" value="servings" class="radio-input" checked>
+                                        <div class="radio-label">
+                                            <div class="radio-title">Scale by Number of Servings</div>
+                                            <div class="radio-description">Choose this if you know how many servings you need.</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="scalingMethod" value="volume" class="radio-input">
+                                        <div class="radio-label">
+                                            <div class="radio-title">Scale by Total Volume (mL)</div>
+                                            <div class="radio-description">Ideal for filling a specific container or batch size.</div>
+                                        </div>
+                                    </label>
+                                </div>
                             </div>
-                            
-                            <div class="library-list" id="libraryList">
-                                <!-- Saved recipes will appear here -->
+
+                            <!-- Step 2: Enter Quantity -->
+                            <div class="form-group">
+                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
+                                    Step 2: Enter Quantity
+                                </h3>
+                                <div class="relative">
+                                    <input type="number" step="0.1" id="scaleQuantity" class="form-input" placeholder="Number of servings">
+                                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray text-sm" id="scaleUnit">servings</span>
+                                </div>
                             </div>
+
+                            <!-- Step 3: Add Dilution -->
+                            <div class="form-group">
+                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
+                                    Step 3: Add Dilution (Optional)
+                                </h3>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="dilution" value="0" class="radio-input" checked>
+                                        <div class="radio-label">
+                                            <div class="radio-title">0% (No Dilution)</div>
+                                            <div class="radio-description">Best if you plan to shake or stir to order.</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="dilution" value="18" class="radio-input">
+                                        <div class="radio-label">
+                                            <div class="radio-title">18% (Spirit-Driven)</div>
+                                            <div class="radio-description">Best for strong drinks containing mainly spirits.</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="dilution" value="25" class="radio-input">
+                                        <div class="radio-label">
+                                            <div class="radio-title">25% (Shaken Cocktails)</div>
+                                            <div class="radio-description">Ideal for cocktails with fruit juices, dairy, or eggs.</div>
+                                        </div>
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="dilution" value="custom" class="radio-input">
+                                        <div class="radio-label">
+                                            <div class="radio-title">Custom Dilution</div>
+                                            <div class="radio-description">Enter your own dilution percentage.</div>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div id="customDilutionContainer" class="hidden mt-3">
+                                    <input type="number" step="0.1" id="customDilution" class="form-input" placeholder="Enter dilution percentage">
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary w-full mt-6 py-4 text-lg font-bold" id="calculateButton">
+                                <i class="fas fa-calculator"></i>
+                                Calculate Scaled Recipe
+                            </button>
                         </div>
                     </div>
-                    
-                    <!-- Attribution -->
-                    <div class="attribution">
-                        <div>Copyright Beverage Solutions by Suraj</div>
-                        <div class="instagram-handle">
-                            <a href="https://www.instagram.com/suraj.gg87/" target="_blank">
-                                <i class="fab fa-instagram"></i> @suraj.gg87
-                            </a>
+                </div>
+
+                <!-- Right Column -->
+                <div>
+                    <div class="results-panel">
+                        <div class="results-header">
+                            <h2 class="results-title">
+                                <i class="fas fa-tint"></i>
+                                <span id="resultsRecipeName">Ready to Calculate</span>
+                            </h2>
+                            <button class="btn" id="shareButton" style="background: black; color: white;">
+                                <i class="fas fa-share"></i>
+                                <span>Share</span>
+                            </button>
+                        </div>
+                        <div class="results-content">
+                            <div id="emptyResults" class="text-center py-8">
+                                <div class="logo-icon mx-auto mb-4" style="background: rgba(255, 179, 71, 0.1);">
+                                    <i class="fas fa-sparkles text-primary"></i>
+                                </div>
+                                <h3 class="text-lg font-semibold text-black mb-2">Ready to Calculate</h3>
+                                <p class="text-black text-sm">
+                                    Enter your recipe details and click calculate to see the scaled results
+                                </p>
+                            </div>
+                            <div id="resultsContent" class="hidden">
+                                <div class="results-section">
+                                    <h3 class="results-section-title">Scaled Ingredients</h3>
+                                    <div id="resultsIngredients"></div>
+                                </div>
+                                <div class="results-section">
+                                    <div id="resultsTotals"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -931,606 +754,512 @@
         </div>
     </div>
 
+    <div class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>Copyright ©  Batch Cal - By 
+                    <a href="https://www.instagram.com/suraj.gg87/" class="footer-link" target="_blank">suraj</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Global variables
-        let ingredients = [];
-        let scalingMethod = 'servings';
-        let dilutionPercentage = 0;
-        let customDilution = false;
-        let savedRecipes = JSON.parse(localStorage.getItem('savedRecipes')) || {};
-
-        // Unit conversion factors to milliliters
-        const unitConversions = {
-            'ml': 1,         // 1 mL = 1 mL
-            'dash': 0.625,   // 1 dash = 0.625 mL
-            'tsp': 4.92892,  // 1 tsp = 4.92892 mL
-            'tbsp': 14.7868, // 1 tbsp = 14.7868 mL
-            'cup': 236.588,  // 1 cup = 236.588 mL
-            'piece': 0,      // Non-volume unit
-            'slice': 0,      // Non-volume unit
-            'sprig': 0       // Non-volume unit
+        // Unit conversion constants (Ounces removed)
+        const UNITS = {
+            Milliliters: 1,
+            Teaspoons: 4.92892,
+            Dashes: 0.616,
+            Drops: 0.05,
+            Grams: 1
         };
 
-        // Initialize with empty ingredients
-        window.onload = function() {
-            initializeEmptyIngredients();
-            updateMethodDescription();
-            loadSavedRecipes();
+        // Default state
+        const defaultState = {
+            recipeName: "",
+            ingredients: [
+                { name: "", quantity: "", unit: "Milliliters" }
+            ],
+            scalingMethod: "servings",
+            scaleQuantity: "",
+            dilution: "0",
+            customDilution: "",
+            results: null,
+            showLibrary: false,
+            savedRecipes: JSON.parse(localStorage.getItem('savedRecipes')) || []
+        };
+
+        // State management
+        let state = {...defaultState};
+
+        // DOM Elements
+        const recipeNameInput = document.getElementById('recipeName');
+        const ingredientsList = document.getElementById('ingredientsList');
+        const scalingMethodRadios = document.querySelectorAll('input[name="scalingMethod"]');
+        const scaleQuantityInput = document.getElementById('scaleQuantity');
+        const scaleUnitSpan = document.getElementById('scaleUnit');
+        const dilutionRadios = document.querySelectorAll('input[name="dilution"]');
+        const customDilutionContainer = document.getElementById('customDilutionContainer');
+        const customDilutionInput = document.getElementById('customDilution');
+        const calculateButton = document.getElementById('calculateButton');
+        const addIngredientButton = document.getElementById('addIngredient');
+        const saveRecipeButton = document.getElementById('saveRecipe');
+        const libraryToggle = document.getElementById('libraryToggle');
+        const closeLibrary = document.getElementById('closeLibrary');
+        const libraryView = document.getElementById('libraryView');
+        const mainView = document.getElementById('mainView');
+        const emptyLibrary = document.getElementById('emptyLibrary');
+        const libraryList = document.getElementById('libraryList');
+        const saveAlert = document.getElementById('saveAlert');
+        const resetAlert = document.getElementById('resetAlert');
+        const resultsRecipeName = document.getElementById('resultsRecipeName');
+        const emptyResults = document.getElementById('emptyResults');
+        const resultsContent = document.getElementById('resultsContent');
+        const resultsIngredients = document.getElementById('resultsIngredients');
+        const resultsTotals = document.getElementById('resultsTotals');
+        const shareButton = document.getElementById('shareButton');
+        const resetButton = document.getElementById('resetButton');
+
+        // Reset the app to default state
+        function resetApp() {
+            // Reset state to default
+            state = {...defaultState};
             
-            // Add animation to logo when calculating
-            document.querySelector('.btn-primary').addEventListener('click', function() {
-                document.querySelector('.animated-logo').classList.add('shaking');
-                setTimeout(() => {
-                    document.querySelector('.animated-logo').classList.remove('shaking');
-                }, 500);
+            // Reset form inputs
+            recipeNameInput.value = "";
+            scaleQuantityInput.value = "";
+            customDilutionInput.value = "";
+            
+            // Reset radio buttons
+            document.querySelector('input[name="scalingMethod"][value="servings"]').checked = true;
+            document.querySelector('input[name="dilution"][value="0"]').checked = true;
+            
+            // Hide custom dilution container
+            customDilutionContainer.classList.add('hidden');
+            
+            // Reset results
+            state.results = null;
+            renderResults();
+            
+            // Re-render ingredients
+            renderIngredients();
+            
+            // Update scale unit
+            updateScaleUnit();
+            
+            // Update results recipe name
+            updateResultsRecipeName();
+            
+            // Ensure we're on the main view (not library)
+            libraryView.classList.add('hidden');
+            mainView.classList.remove('hidden');
+            
+            // Show reset success message
+            showResetAlert();
+        }
+
+        // Show reset alert
+        function showResetAlert() {
+            resetAlert.classList.remove('hidden');
+            setTimeout(() => {
+                resetAlert.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Initialize the app
+        function init() {
+            // Set up event listeners
+            recipeNameInput.addEventListener('input', (e) => {
+                state.recipeName = e.target.value;
+                updateResultsRecipeName();
             });
-            
-            // Prevent zoom on input focus for mobile devices
-            document.addEventListener('touchstart', function() {}, {passive: true});
-        };
 
-        // Initialize with empty ingredients
-        function initializeEmptyIngredients() {
-            const ingredientsList = document.getElementById('ingredientsList');
+            scalingMethodRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    state.scalingMethod = e.target.value;
+                    updateScaleUnit();
+                });
+            });
+
+            scaleQuantityInput.addEventListener('input', (e) => {
+                state.scaleQuantity = e.target.value;
+            });
+
+            dilutionRadios.forEach(radio => {
+                radio.addEventListener('change', (e) => {
+                    state.dilution = e.target.value;
+                    if (e.target.value === 'custom') {
+                        customDilutionContainer.classList.remove('hidden');
+                    } else {
+                        customDilutionContainer.classList.add('hidden');
+                    }
+                });
+            });
+
+            customDilutionInput.addEventListener('input', (e) => {
+                state.customDilution = e.target.value;
+            });
+
+            calculateButton.addEventListener('click', calculateScaledRecipe);
+            addIngredientButton.addEventListener('click', addIngredient);
+            saveRecipeButton.addEventListener('click', saveRecipe);
+            libraryToggle.addEventListener('click', toggleLibrary);
+            closeLibrary.addEventListener('click', toggleLibrary);
+            shareButton.addEventListener('click', shareRecipe);
+            resetButton.addEventListener('click', resetApp);
+
+            // Render initial ingredients
+            renderIngredients();
+            updateScaleUnit();
+        }
+
+        // Render ingredients list
+        function renderIngredients() {
             ingredientsList.innerHTML = '';
-            ingredients = [];
             
-            // Add only 1 empty ingredient slot
-            addIngredient();
-        }
-
-        // Add new ingredient row
-        function addIngredient() {
-            const ingredientsList = document.getElementById('ingredientsList');
-            const ingredientId = 'ingredient_' + Date.now();
-            
-            const ingredientHtml = `
-                <div class="ingredient-item" id="${ingredientId}">
-                    <input type="text" class="ingredient-input ingredient-name" placeholder="Ingredient name" oninput="updateIngredient('${ingredientId}', 'name', this.value)">
-                    <input type="number" class="ingredient-input ingredient-quantity" placeholder="Qty" step="0.01" min="0" oninput="updateIngredient('${ingredientId}', 'quantity', this.value)">
-                    <select class="ingredient-input ingredient-unit" onchange="updateIngredient('${ingredientId}', 'unit', this.value)">
-                        <option value="ml">ml</option>
-                        <option value="dash">dash</option>
-                        <option value="tsp">tsp</option>
-                        <option value="tbsp">tbsp</option>
-                        <option value="cup">cup</option>
-                        <option value="piece">piece</option>
-                        <option value="slice">slice</option>
-                        <option value="sprig">sprig</option>
-                    </select>
-                    <button class="bin-btn" onclick="removeIngredient('${ingredientId}')">
-                        <i class="fas fa-trash"></i>
+            state.ingredients.forEach((ingredient, index) => {
+                const ingredientRow = document.createElement('div');
+                ingredientRow.className = 'ingredient-row';
+                
+                ingredientRow.innerHTML = `
+                    <div class="ingredient-name">
+                        <input type="text" class="form-input" placeholder="Ingredient name" 
+                               value="${ingredient.name}" 
+                               oninput="updateIngredient(${index}, 'name', this.value)">
+                    </div>
+                    <div class="ingredient-quantity">
+                        <input type="number" step="0.1" class="form-input" placeholder="0" 
+                               value="${ingredient.quantity}" 
+                               oninput="updateIngredient(${index}, 'quantity', this.value)">
+                    </div>
+                    <div class="ingredient-unit">
+                        <select class="form-input" onchange="updateIngredient(${index}, 'unit', this.value)">
+                            <option value="Milliliters" ${ingredient.unit === 'Milliliters' ? 'selected' : ''}>Milliliters</option>
+                            <option value="Grams" ${ingredient.unit === 'Grams' ? 'selected' : ''}>Grams</option>
+                            <option value="Teaspoons" ${ingredient.unit === 'Teaspoons' ? 'selected' : ''}>Teaspoons</option>
+                            <option value="Dashes" ${ingredient.unit === 'Dashes' ? 'selected' : ''}>Dashes</option>
+                            <option value="Drops" ${ingredient.unit === 'Drops' ? 'selected' : ''}>Drops</option>
+                        </select>
+                    </div>
+                    <button class="ingredient-remove" ${state.ingredients.length === 1 ? 'disabled' : ''} 
+                            onclick="removeIngredient(${index})">
+                        <i class="fas fa-times"></i>
                     </button>
-                </div>
-            `;
-            
-            ingredientsList.insertAdjacentHTML('beforeend', ingredientHtml);
-            
-            // Add to ingredients array with proper reference
-            ingredients.push({
-                id: ingredientId,
-                name: '',
-                quantity: 0,
-                unit: 'ml'
+                `;
+                
+                ingredientsList.appendChild(ingredientRow);
             });
         }
 
-        // Update ingredient in array - FIXED VERSION
-        function updateIngredient(id, field, value) {
-            const ingredientIndex = ingredients.findIndex(ing => ing.id === id);
-            if (ingredientIndex !== -1) {
-                if (field === 'quantity') {
-                    ingredients[ingredientIndex][field] = parseFloat(value) || 0;
-                } else {
-                    ingredients[ingredientIndex][field] = value;
-                }
-            }
+        // Update ingredient in state
+        function updateIngredient(index, field, value) {
+            state.ingredients[index][field] = value;
+        }
+
+        // Add new ingredient
+        function addIngredient() {
+            state.ingredients.push({ name: "", quantity: "", unit: "Milliliters" });
+            renderIngredients();
         }
 
         // Remove ingredient
-        function removeIngredient(id) {
-            ingredients = ingredients.filter(ing => ing.id !== id);
-            const element = document.getElementById(id);
-            if (element) {
-                element.remove();
+        function removeIngredient(index) {
+            if (state.ingredients.length > 1) {
+                state.ingredients.splice(index, 1);
+                renderIngredients();
             }
         }
 
-        // Set scaling method
-        function setScalingMethod(method) {
-            scalingMethod = method;
-            
-            // Update UI
-            document.querySelectorAll('.method-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Update labels and descriptions
-            updateMethodDescription();
-        }
-
-        // Update method description based on selection
-        function updateMethodDescription() {
-            const description = document.getElementById('methodDescription');
-            const quantityLabel = document.getElementById('quantityLabel');
-            const quantityInput = document.getElementById('scaleQuantity');
-            
-            if (scalingMethod === 'servings') {
-                description.textContent = 'Choose this if you know how many servings you need.';
-                quantityLabel.textContent = 'STEP 2: ENTER QUANTITY';
-                quantityInput.placeholder = 'servings';
+        // Update scale unit display
+        function updateScaleUnit() {
+            if (state.scalingMethod === 'servings') {
+                scaleUnitSpan.textContent = 'servings';
+                scaleQuantityInput.placeholder = 'Number of servings';
             } else {
-                description.textContent = 'Ideal for filling a specific container or batch size.';
-                quantityLabel.textContent = 'STEP 2: ENTER TOTAL VOLUME';
-                quantityInput.placeholder = 'milliliters (mL)';
+                scaleUnitSpan.textContent = 'mL';
+                scaleQuantityInput.placeholder = 'Total volume in mL';
             }
         }
 
-        // Set dilution percentage
-        function setDilution(percentage) {
-            dilutionPercentage = percentage;
-            customDilution = false;
-            
-            // Update UI
-            document.querySelectorAll('.dilution-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Hide custom dilution input
-            document.getElementById('customDilutionGroup').classList.add('hidden');
-            
-            // Update description
-            updateDilutionDescription();
+        // Update results recipe name
+        function updateResultsRecipeName() {
+            resultsRecipeName.textContent = state.recipeName || 'Ready to Calculate';
         }
 
-        // Set custom dilution
-        function setCustomDilution() {
-            customDilution = true;
-            
-            // Update UI
-            document.querySelectorAll('.dilution-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Show custom dilution input
-            document.getElementById('customDilutionGroup').classList.remove('hidden');
-            
-            // Update description
-            document.getElementById('dilutionDescription').textContent = 'Water added based on total drink volume percentage.';
-        }
+        // Calculate scaled recipe
+        function calculateScaledRecipe() {
+            const validIngredients = state.ingredients.filter(
+                ing => ing.name && ing.quantity && !isNaN(parseFloat(ing.quantity))
+            );
 
-        // Update dilution description
-        function updateDilutionDescription() {
-            const description = document.getElementById('dilutionDescription');
-            
-            switch(dilutionPercentage) {
-                case 0:
-                    description.textContent = 'No water added. Best if you plan to shake or stir to order.';
-                    break;
-                case 18:
-                    description.textContent = '18% water added. Best for strong drinks containing mainly spirits.';
-                    break;
-                case 25:
-                    description.textContent = '25% water added. Ideal for cocktails with fruit juices, dairy, or eggs.';
-                    break;
-                default:
-                    description.textContent = `${dilutionPercentage}% water added based on total volume.`;
-            }
-        }
-
-        // Show/hide tabs with optional reset
-        function showTab(tabName, resetCalculator = false) {
-            // Update tab UI
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            event.target.classList.add('active');
-            
-            // Show/hide tab content
-            document.getElementById('calculator-tab').style.display = tabName === 'calculator' ? 'block' : 'none';
-            document.getElementById('library-tab').style.display = tabName === 'library' ? 'block' : 'none';
-            
-            // Reset calculator if requested
-            if (resetCalculator) {
-                resetCalculatorTab();
-            }
-            
-            // If showing library, refresh the list
-            if (tabName === 'library') {
-                loadSavedRecipes();
-            }
-        }
-
-        // Reset calculator tab to initial state
-        function resetCalculatorTab() {
-            // Clear recipe name
-            document.getElementById('recipeName').value = '';
-            
-            // Reset original servings
-            document.getElementById('originalServings').value = '1';
-            
-            // Clear all ingredients
-            const ingredientsList = document.getElementById('ingredientsList');
-            ingredientsList.innerHTML = '';
-            ingredients = [];
-            
-            // Add one empty ingredient
-            addIngredient();
-            
-            // Reset scaling method
-            scalingMethod = 'servings';
-            document.querySelectorAll('.method-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelectorAll('.method-btn')[0].classList.add('active');
-            
-            // Reset scale quantity
-            document.getElementById('scaleQuantity').value = '';
-            
-            // Reset dilution
-            dilutionPercentage = 0;
-            customDilution = false;
-            document.querySelectorAll('.dilution-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            document.querySelectorAll('.dilution-btn')[0].classList.add('active');
-            document.getElementById('customDilutionGroup').classList.add('hidden');
-            
-            // Hide results section
-            document.getElementById('resultsSection').style.display = 'none';
-            
-            // Update descriptions
-            updateMethodDescription();
-            updateDilutionDescription();
-        }
-
-        // Save recipe to library
-        function saveToLibrary() {
-            const recipeName = document.getElementById('recipeName').value || 'Unnamed Recipe';
-            
-            if (ingredients.length === 0 || ingredients.every(ing => !ing.name || ing.quantity === 0)) {
-                alert('Please add at least one ingredient with name and quantity!');
+            if (validIngredients.length === 0 || !state.scaleQuantity || isNaN(parseFloat(state.scaleQuantity))) {
+                alert('Please enter valid ingredients and scaling quantity');
                 return;
             }
-            
-            const recipe = {
-                name: recipeName,
-                servings: parseInt(document.getElementById('originalServings').value) || 1,
-                ingredients: ingredients.map(ing => ({
+
+            const ingredientsInMl = validIngredients.map(ing => ({
+                name: ing.name,
+                ml: parseFloat(ing.quantity) * UNITS[ing.unit],
+                unit: ing.unit
+            }));
+
+            const totalOriginalVolume = ingredientsInMl.reduce((sum, ing) => sum + ing.ml, 0);
+
+            let scaledIngredients;
+            let totalScaledVolume;
+            let numServings;
+
+            const dilutionPercent = state.dilution === "custom" 
+                ? parseFloat(state.customDilution) || 0 
+                : parseFloat(state.dilution);
+
+            if (state.scalingMethod === "servings") {
+                const servings = parseFloat(state.scaleQuantity);
+                scaledIngredients = ingredientsInMl.map(ing => ({
                     name: ing.name,
-                    quantity: ing.quantity,
-                    unit: ing.unit
-                }))
+                    ml: ing.ml * servings
+                }));
+                totalScaledVolume = totalOriginalVolume * servings;
+                numServings = servings;
+            } else {
+                const targetVolume = parseFloat(state.scaleQuantity);
+                const volumeBeforeDilution = targetVolume / (1 + dilutionPercent / 100);
+                const scaleFactor = volumeBeforeDilution / totalOriginalVolume;
+                
+                scaledIngredients = ingredientsInMl.map(ing => ({
+                    name: ing.name,
+                    ml: ing.ml * scaleFactor
+                }));
+                totalScaledVolume = volumeBeforeDilution;
+                // Calculate servings as decimal instead of integer
+                numServings = targetVolume / totalOriginalVolume;
+            }
+
+            const dilutionAmount = (totalScaledVolume * dilutionPercent) / 100;
+            const finalVolume = totalScaledVolume + dilutionAmount;
+
+            state.results = {
+                ingredients: scaledIngredients,
+                dilution: dilutionAmount,
+                totalVolume: finalVolume,
+                numServings: numServings,
+                dilutionPercent
             };
-            
-            // Generate a unique ID for the recipe
-            const recipeId = 'recipe_' + Date.now();
-            savedRecipes[recipeId] = recipe;
-            
-            // Save to localStorage
-            localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-            
-            // Update library display
-            loadSavedRecipes();
-            
-            // Show success message and switch to library tab
-            alert(`Recipe "${recipeName}" saved successfully!`);
-            showTab('library');
+
+            renderResults();
         }
 
-        // Load saved recipes into the library
-        function loadSavedRecipes() {
-            const libraryList = document.getElementById('libraryList');
+        // Render calculation results
+        function renderResults() {
+            if (!state.results) {
+                emptyResults.classList.remove('hidden');
+                resultsContent.classList.add('hidden');
+                return;
+            }
+
+            emptyResults.classList.add('hidden');
+            resultsContent.classList.remove('hidden');
+
+            // Render ingredients
+            resultsIngredients.innerHTML = '';
+            state.results.ingredients.forEach(ingredient => {
+                const ingredientElement = document.createElement('div');
+                ingredientElement.className = 'ingredient-result';
+                ingredientElement.innerHTML = `
+                    <span class="ingredient-name">${ingredient.name}</span>
+                    <span class="ingredient-value">${ingredient.ml.toFixed(1)} ml</span>
+                `;
+                resultsIngredients.appendChild(ingredientElement);
+            });
+
+            // Add dilution if applicable
+            if (state.results.dilution > 0) {
+                const dilutionElement = document.createElement('div');
+                dilutionElement.className = 'ingredient-result';
+                dilutionElement.innerHTML = `
+                    <span class="ingredient-name">Water (Dilution)</span>
+                    <span class="ingredient-value">${state.results.dilution.toFixed(1)} ml</span>
+                `;
+                resultsIngredients.appendChild(dilutionElement);
+            }
+
+            // Render totals
+            resultsTotals.innerHTML = '';
+            const totalElement = document.createElement('div');
+            totalElement.className = 'total-row';
+            totalElement.innerHTML = `
+                <span>Total Volume</span>
+                <span>${state.results.totalVolume.toFixed(1)} ml</span>
+            `;
+            resultsTotals.appendChild(totalElement);
+
+            if (state.results.numServings) {
+                const servingsElement = document.createElement('div');
+                servingsElement.className = 'total-row';
+                // Show decimal servings when scaling by volume
+                const servingsText = state.scalingMethod === "volume" 
+                    ? state.results.numServings.toFixed(2) 
+                    : Math.round(state.results.numServings);
+                servingsElement.innerHTML = `
+                    <span>Servings</span>
+                    <span>${servingsText}</span>
+                `;
+                resultsTotals.appendChild(servingsElement);
+            }
+        }
+
+        // Save recipe
+        function saveRecipe() {
+            const validIngredients = state.ingredients.filter(
+                ing => ing.name && ing.quantity && !isNaN(parseFloat(ing.quantity))
+            );
+
+            if (!state.recipeName || validIngredients.length === 0) {
+                alert('Please enter a recipe name and at least one valid ingredient');
+                return;
+            }
+
+            const recipe = {
+                id: Date.now().toString(),
+                name: state.recipeName,
+                ingredients: validIngredients
+            };
+
+            state.savedRecipes.push(recipe);
+            localStorage.setItem('savedRecipes', JSON.stringify(state.savedRecipes));
+
+            // Show success alert
+            saveAlert.classList.remove('hidden');
+            setTimeout(() => {
+                saveAlert.classList.add('hidden');
+            }, 3000);
+        }
+
+        // Toggle library view
+        function toggleLibrary() {
+            state.showLibrary = !state.showLibrary;
+            
+            if (state.showLibrary) {
+                libraryView.classList.remove('hidden');
+                mainView.classList.add('hidden');
+                renderLibrary();
+            } else {
+                libraryView.classList.remove('hidden');
+                mainView.classList.remove('hidden');
+                libraryView.classList.add('hidden');
+            }
+        }
+
+        // Render library
+        function renderLibrary() {
+            if (state.savedRecipes.length === 0) {
+                emptyLibrary.classList.remove('hidden');
+                libraryList.classList.add('hidden');
+                return;
+            }
+
+            emptyLibrary.classList.add('hidden');
+            libraryList.classList.remove('hidden');
+
             libraryList.innerHTML = '';
-            
-            // Add saved recipes
-            for (const id in savedRecipes) {
-                const recipe = savedRecipes[id];
-                const item = document.createElement('div');
-                item.className = 'library-item';
-                item.innerHTML = `
-                    <span>${recipe.name}</span>
-                    <div>
-                        <button class="delete-btn" onclick="event.stopPropagation(); deleteRecipe('${id}')">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                        <button class="btn btn-primary" style="width: auto; padding: 6px 10px; margin: 0 0 0 8px; font-size: 11px;" onclick="event.stopPropagation(); loadRecipe('${id}'); showTab('calculator')">
-                            <i class="fas fa-edit"></i> Use
-                        </button>
-                    </div>
-                `;
-                libraryList.appendChild(item);
-            }
-            
-            if (libraryList.children.length === 0) {
-                libraryList.innerHTML = '<div style="text-align: center; padding: 20px; color: #7f8c8d;">No saved recipes yet. Save a recipe to see it here.</div>';
-            }
-        }
-
-        // Load a recipe from the library
-        function loadRecipe(id) {
-            const recipe = savedRecipes[id];
-            if (!recipe) return;
-            
-            // Set recipe name
-            document.getElementById('recipeName').value = recipe.name;
-            document.getElementById('originalServings').value = recipe.servings;
-            
-            // Clear current ingredients
-            const ingredientsList = document.getElementById('ingredientsList');
-            ingredientsList.innerHTML = '';
-            ingredients = [];
-            
-            // Add recipe ingredients
-            recipe.ingredients.forEach((ing, index) => {
-                const ingredientId = 'ingredient_' + Date.now() + '_' + index;
+            state.savedRecipes.forEach(recipe => {
+                const recipeElement = document.createElement('div');
+                recipeElement.className = 'library-item';
                 
-                const ingredientHtml = `
-                    <div class="ingredient-item" id="${ingredientId}">
-                        <input type="text" class="ingredient-input ingredient-name" placeholder="Ingredient name" value="${ing.name}" oninput="updateIngredient('${ingredientId}', 'name', this.value)">
-                        <input type="number" class="ingredient-input ingredient-quantity" placeholder="Qty" step="0.01" min="0" value="${ing.quantity}" oninput="updateIngredient('${ingredientId}', 'quantity', this.value)">
-                        <select class="ingredient-input ingredient-unit" onchange="updateIngredient('${ingredientId}', 'unit', this.value)">
-                            <option value="ml" ${ing.unit === 'ml' ? 'selected' : ''}>ml</option>
-                            <option value="dash" ${ing.unit === 'dash' ? 'selected' : ''}>dash</option>
-                            <option value="tsp" ${ing.unit === 'tsp' ? 'selected' : ''}>tsp</option>
-                            <option value="tbsp" ${ing.unit === 'tbsp' ? 'selected' : ''}>tbsp</option>
-                            <option value="cup" ${ing.unit === 'cup' ? 'selected' : ''}>cup</option>
-                            <option value="piece" ${ing.unit === 'piece' ? 'selected' : ''}>piece</option>
-                            <option value="slice" ${ing.unit === 'slice' ? 'selected' : ''}>slice</option>
-                            <option value="sprig" ${ing.unit === 'sprig' ? 'selected' : ''}>sprig</option>
-                        </select>
-                        <button class="bin-btn" onclick="removeIngredient('${ingredientId}')">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
-                `;
-                
-                ingredientsList.insertAdjacentHTML('beforeend', ingredientHtml);
-                
-                // Add to ingredients array
-                ingredients.push({
-                    id: ingredientId,
-                    name: ing.name,
-                    quantity: ing.quantity,
-                    unit: ing.unit
+                let ingredientsHtml = '';
+                recipe.ingredients.forEach(ing => {
+                    ingredientsHtml += `<p class="library-item-ingredients">• ${ing.name}: ${ing.quantity} ${ing.unit}</p>`;
                 });
+                
+                recipeElement.innerHTML = `
+                    <div class="library-item-header">
+                        <div>
+                            <h3 class="library-item-title">${recipe.name}</h3>
+                            ${ingredientsHtml}
+                        </div>
+                        <div class="library-actions">
+                            <button class="btn btn-primary" onclick="loadRecipe('${recipe.id}')">Load</button>
+                            <button class="btn btn-danger" onclick="deleteRecipe('${recipe.id}')">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                libraryList.appendChild(recipeElement);
             });
         }
 
-        // Delete a recipe from the library
+        // Load recipe from library
+        function loadRecipe(id) {
+            const recipe = state.savedRecipes.find(r => r.id === id);
+            if (recipe) {
+                state.recipeName = recipe.name;
+                state.ingredients = [...recipe.ingredients];
+                
+                recipeNameInput.value = state.recipeName;
+                renderIngredients();
+                updateResultsRecipeName();
+                
+                toggleLibrary();
+            }
+        }
+
+        // Delete recipe from library
         function deleteRecipe(id) {
             if (confirm('Are you sure you want to delete this recipe?')) {
-                delete savedRecipes[id];
-                localStorage.setItem('savedRecipes', JSON.stringify(savedRecipes));
-                loadSavedRecipes();
+                state.savedRecipes = state.savedRecipes.filter(r => r.id !== id);
+                localStorage.setItem('savedRecipes', JSON.stringify(state.savedRecipes));
+                renderLibrary();
             }
         }
 
-        // Convert ingredient quantity to milliliters
-        function convertToMilliliters(quantity, unit) {
-            const conversionFactor = unitConversions[unit] || 0;
-            return quantity * conversionFactor;
-        }
-
-        // Calculate total volume of ingredients in mL
-        function calculateTotalVolume(ingredientsList) {
-            return ingredientsList.reduce((total, ing) => {
-                if (unitConversions[ing.unit] > 0) { // Only count volume-based ingredients
-                    return total + convertToMilliliters(ing.quantity, ing.unit);
-                }
-                return total;
-            }, 0);
-        }
-
-        // Calculate scaled recipe - COMPLETELY FIXED VERSION
-        function calculateScaledRecipe() {
-            // Get original servings
-            const originalServings = parseFloat(document.getElementById('originalServings').value) || 1;
-            if (originalServings <= 0) {
-                alert('Please enter a valid number of original servings!');
-                return;
-            }
-            
-            // Get scaling quantity
-            const scaleQuantity = parseFloat(document.getElementById('scaleQuantity').value);
-            if (!scaleQuantity || scaleQuantity <= 0) {
-                alert('Please enter a valid scaling quantity!');
-                return;
-            }
-            
-            // Get custom dilution if set
-            if (customDilution) {
-                dilutionPercentage = parseFloat(document.getElementById('customDilution').value) || 0;
-                if (dilutionPercentage < 0 || dilutionPercentage > 100) {
-                    alert('Please enter a valid dilution percentage between 0 and 100!');
-                    return;
-                }
-            }
-            
-            // FIXED: Get current ingredient values directly from DOM
-            const validIngredients = [];
-            const ingredientElements = document.querySelectorAll('.ingredient-item');
-            
-            ingredientElements.forEach(element => {
-                const nameInput = element.querySelector('input[type="text"]');
-                const quantityInput = element.querySelector('input[type="number"]');
-                const unitSelect = element.querySelector('select');
-                
-                const name = nameInput.value.trim();
-                const quantity = parseFloat(quantityInput.value) || 0;
-                const unit = unitSelect.value;
-                
-                if (name && quantity > 0) {
-                    validIngredients.push({
-                        name: name,
-                        quantity: quantity,
-                        unit: unit
-                    });
-                }
-            });
-            
-            if (validIngredients.length === 0) {
-                alert('Please add at least one ingredient with name and quantity!');
-                return;
-            }
-            
-            // Calculate original total volume
-            const originalTotalVolume = calculateTotalVolume(validIngredients);
-            
-            // Calculate scaling factor and results
-            let scalingFactor;
-            let targetServings;
-            let targetTotalVolume;
-            
-            if (scalingMethod === 'servings') {
-                // Scale by servings
-                scalingFactor = scaleQuantity / originalServings;
-                targetServings = scaleQuantity;
-                targetTotalVolume = originalTotalVolume * scalingFactor;
-            } else {
-                // Scale by total volume
-                scalingFactor = scaleQuantity / originalTotalVolume;
-                targetTotalVolume = scaleQuantity;
-                // Calculate exact decimal servings when scaling by volume
-                targetServings = originalServings * scalingFactor;
-            }
-            
-            // Calculate water dilution based on total volume percentage
-            const waterVolume = targetTotalVolume * (dilutionPercentage / 100);
-            const finalTotalVolume = targetTotalVolume + waterVolume;
-            // Calculate exact decimal servings with dilution
-            const finalServings = targetServings * (1 + (dilutionPercentage / 100));
-            
-            // Calculate scaled ingredients - FIXED: Use validIngredients from DOM
-            const scaledIngredients = validIngredients.map(ing => {
-                let scaledQuantity = ing.quantity * scalingFactor;
-                
-                // Round to reasonable precision
-                let roundedQuantity;
-                if (scaledQuantity < 0.1) {
-                    roundedQuantity = Math.round(scaledQuantity * 1000) / 1000; // 3 decimal places for very small amounts
-                } else if (scaledQuantity < 1) {
-                    roundedQuantity = Math.round(scaledQuantity * 100) / 100; // 2 decimal places for small amounts
-                } else if (scaledQuantity < 10) {
-                    roundedQuantity = Math.round(scaledQuantity * 10) / 10; // 1 decimal place
-                } else {
-                    roundedQuantity = Math.round(scaledQuantity); // Whole numbers for larger amounts
-                }
-                
-                return {
-                    name: ing.name,
-                    quantity: roundedQuantity,
-                    unit: ing.unit
-                };
-            });
-            
-            // Add water as a separate ingredient if dilution is applied
-            if (waterVolume > 0) {
-                scaledIngredients.push({
-                    name: 'Dilution (Water)',
-                    quantity: Math.round(waterVolume * 10) / 10, // 1 decimal place
-                    unit: 'ml',
-                    isWater: true
-                });
-            }
-            
-            // Display results
-            displayResults(scaledIngredients, finalTotalVolume, finalServings);
-        }
-
-        // Display scaled recipe results
-        function displayResults(scaledIngredients, totalVolume, servings) {
-            const resultsSection = document.getElementById('resultsSection');
-            const scaledIngredientsList = document.getElementById('scaledIngredientsList');
-            const displayRecipeName = document.getElementById('displayRecipeName');
-            const displayTotalVolume = document.getElementById('displayTotalVolume');
-            const displayServings = document.getElementById('displayServings');
-            
-            // Update recipe name
-            const recipeName = document.getElementById('recipeName').value || 'My Recipe';
-            displayRecipeName.textContent = recipeName;
-            
-            // Update batch info
-            displayTotalVolume.textContent = `${totalVolume.toFixed(1)} ml`;
-            
-            // Show decimal servings when scaling by volume
-            if (scalingMethod === 'volume') {
-                // Show 1 decimal place for volume scaling
-                displayServings.textContent = servings.toFixed(1);
-            } else {
-                // Show whole numbers for servings scaling
-                displayServings.textContent = Math.round(servings);
-            }
-            
-            // Clear previous results
-            scaledIngredientsList.innerHTML = '';
-            
-            // Add each scaled ingredient
-            scaledIngredients.forEach(ing => {
-                const ingredientRow = document.createElement('div');
-                ingredientRow.className = 'ingredient-row';
-                ingredientRow.innerHTML = `
-                    <span class="ingredient-name">${ing.name}</span>
-                    <span class="ingredient-amount">${ing.quantity} ${ing.unit}</span>
-                `;
-                scaledIngredientsList.appendChild(ingredientRow);
-            });
-            
-            // Show results section
-            resultsSection.style.display = 'block';
-        }
-
-        // Share recipe functionality
+        // Share recipe
         function shareRecipe() {
-            const recipeName = document.getElementById('displayRecipeName').textContent;
-            const scaledIngredientsList = document.getElementById('scaledIngredientsList');
-            const totalVolume = document.getElementById('displayTotalVolume').textContent;
-            const servings = document.getElementById('displayServings').textContent;
-            
-            let shareText = `Check out my scaled recipe: ${recipeName}\n\nSCALED INGREDIENTS\n`;
-            
-            // Add scaled ingredients to share text
-            const items = scaledIngredientsList.querySelectorAll('.ingredient-row');
-            items.forEach(item => {
-                const name = item.querySelector('.ingredient-name').textContent;
-                const quantity = item.querySelector('.ingredient-amount').textContent;
-                shareText += `${name}\n${quantity}\n`;
+            if (!state.results) return;
+
+            let shareText = `🍸 ${state.recipeName || "Scaled Recipe"}\n\n`;
+            shareText += "Ingredients:\n";
+            state.results.ingredients.forEach(ing => {
+                shareText += `• ${ing.name}: ${ing.ml.toFixed(1)} ml\n`;
             });
-            
-            // Add batch info
-            shareText += `\nTotal Volume\n${totalVolume}\n\nThis batch produces\n${servings}\nservings`;
-            
-            // Check if Web Share API is available
+            if (state.results.dilution > 0) {
+                shareText += `• Water (Dilution): ${state.results.dilution.toFixed(1)} ml\n`;
+            }
+            shareText += `\nTotal Volume: ${state.results.totalVolume.toFixed(1)} ml\n`;
+            if (state.results.numServings) {
+                const servingsText = state.scalingMethod === "volume" 
+                    ? state.results.numServings.toFixed(2) 
+                    : Math.round(state.results.numServings);
+                shareText += `Servings: ${servingsText}\n`;
+            }
+            shareText += `\nMade with Batch Cal - By suraj`;
+
             if (navigator.share) {
                 navigator.share({
-                    title: recipeName,
+                    title: state.recipeName || "Scaled Recipe",
                     text: shareText
                 }).catch(err => {
-                    console.log('Error sharing:', err);
-                    fallbackShare(shareText);
+                    copyToClipboard(shareText);
                 });
             } else {
-                fallbackShare(shareText);
+                copyToClipboard(shareText);
             }
         }
 
-        // Fallback for sharing when Web Share API is not available
-        function fallbackShare(text) {
-            // Copy to clipboard
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(text).then(() => {
-                    alert('Recipe copied to clipboard!');
-                }).catch(err => {
-                    console.error('Failed to copy: ', err);
-                    prompt('Copy this recipe:', text);
-                });
-            } else {
-                prompt('Copy this recipe:', text);
-            }
+        // Copy to clipboard
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = shareButton.innerHTML;
+                shareButton.innerHTML = '<i class="fas fa-check"></i><span>Copied</span>';
+                setTimeout(() => {
+                    shareButton.innerHTML = originalText;
+                }, 2000);
+            });
         }
+
+        // Initialize the app when DOM is loaded
+        document.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
 </html>
