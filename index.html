@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Batch Cal - By suraj</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -31,6 +31,12 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            font-size: 16px; /* Prevent zoom on iOS */
+            -webkit-text-size-adjust: 100%; /* Prevent text inflation */
+        }
+
+        input, select, textarea, button {
+            font-size: 16px; /* Prevent zoom on iOS */
         }
 
         .container {
@@ -47,7 +53,7 @@
             position: sticky;
             top: 0;
             z-index: 50;
-            padding: 16px 0;
+            padding: 12px 0;
         }
 
         .header-content {
@@ -63,10 +69,10 @@
         }
 
         .logo-icon {
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,6 +80,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
+            flex-shrink: 0;
         }
 
         .logo-icon:hover {
@@ -97,7 +104,7 @@
         }
 
         .logo-text {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: bold;
             background: linear-gradient(to right, white, #d1d5db);
             -webkit-background-clip: text;
@@ -108,14 +115,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 16px;
-            border-radius: 6px;
+            padding: 10px 16px;
+            border-radius: 8px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
-            font-size: 14px;
+            font-size: 16px;
             gap: 8px;
+            min-height: 44px; /* Better touch targets */
         }
 
         .btn-outline {
@@ -146,22 +154,22 @@
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
 
         .card-header {
             border-bottom: 1px solid var(--border-light);
-            padding: 20px;
+            padding: 16px;
         }
 
         .card-title {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--text-light);
         }
 
         .card-content {
-            padding: 20px;
+            padding: 16px;
         }
 
         /* Form Styles */
@@ -172,20 +180,21 @@
         .form-label {
             display: block;
             margin-bottom: 8px;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 500;
             color: var(--text-light);
         }
 
         .form-input {
             width: 100%;
-            padding: 10px 12px;
+            padding: 14px 16px;
             background-color: var(--bg-dark);
             border: 1px solid var(--border-medium);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-light);
-            font-size: 14px;
+            font-size: 16px;
             transition: all 0.3s ease;
+            min-height: 50px; /* Better touch targets */
         }
 
         .form-input:focus {
@@ -196,30 +205,51 @@
 
         .form-input::placeholder {
             color: var(--text-gray);
+            font-size: 16px;
         }
 
+        /* Mobile-optimized ingredient rows */
         .ingredient-row {
             display: flex;
+            flex-direction: column;
             gap: 12px;
-            margin-bottom: 12px;
-            align-items: flex-end;
+            margin-bottom: 16px;
+            padding: 16px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
         }
 
         .ingredient-name {
-            flex: 1;
+            width: 100%;
+        }
+
+        .ingredient-name .form-input {
+            font-size: 18px; /* Larger text for ingredient names */
+            padding: 16px;
+            min-height: 56px;
+        }
+
+        .ingredient-details {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+            width: 100%;
         }
 
         .ingredient-quantity {
-            width: 100px;
+            flex: 1;
+            min-width: 0;
         }
 
         .ingredient-unit {
-            width: 120px;
+            flex: 1;
+            min-width: 0;
         }
 
         .ingredient-remove {
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -227,7 +257,8 @@
             border: none;
             color: var(--text-gray);
             cursor: pointer;
-            border-radius: 6px;
+            border-radius: 8px;
+            flex-shrink: 0;
         }
 
         .ingredient-remove:hover {
@@ -261,6 +292,9 @@
         .radio-input {
             margin-top: 2px;
             accent-color: var(--primary);
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
 
         .radio-label {
@@ -272,10 +306,11 @@
             font-weight: 500;
             color: var(--text-light);
             margin-bottom: 4px;
+            font-size: 16px;
         }
 
         .radio-description {
-            font-size: 12px;
+            font-size: 14px;
             color: var(--text-gray);
         }
 
@@ -289,7 +324,7 @@
 
         .results-header {
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 20px;
+            padding: 16px;
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
@@ -297,7 +332,7 @@
         }
 
         .results-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
             color: black;
             display: flex;
@@ -306,7 +341,7 @@
         }
 
         .results-content {
-            padding: 20px;
+            padding: 16px;
         }
 
         .results-section {
@@ -325,8 +360,9 @@
         .ingredient-result {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            font-size: 16px;
         }
 
         .ingredient-name {
@@ -341,10 +377,11 @@
         .total-row {
             display: flex;
             justify-content: space-between;
-            padding: 12px 0;
+            padding: 16px 0;
             border-top: 2px solid rgba(0, 0, 0, 0.2);
             font-weight: bold;
             color: black;
+            font-size: 18px;
         }
 
         /* Library Styles */
@@ -363,9 +400,8 @@
 
         .library-item-header {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .library-item-title {
@@ -377,12 +413,14 @@
 
         .library-item-ingredients {
             color: var(--text-gray);
-            font-size: 14px;
+            font-size: 16px;
+            line-height: 1.5;
         }
 
         .library-actions {
             display: flex;
             gap: 8px;
+            margin-top: 12px;
         }
 
         .btn-danger {
@@ -398,13 +436,14 @@
 
         /* Alert */
         .alert {
-            padding: 12px 16px;
+            padding: 16px;
             background-color: rgba(255, 179, 71, 0.2);
             border: 1px solid var(--primary);
-            border-radius: 6px;
+            border-radius: 8px;
             color: var(--text-light);
             margin-bottom: 20px;
             animation: slideIn 0.3s ease-out;
+            font-size: 16px;
         }
 
         @keyframes slideIn {
@@ -421,12 +460,31 @@
         /* Grid Layout */
         .grid {
             display: grid;
-            gap: 24px;
+            gap: 20px;
         }
 
-        @media (min-width: 1024px) {
+        @media (min-width: 768px) {
             .grid-cols-2 {
                 grid-template-columns: 1fr 1fr;
+            }
+            
+            .ingredient-row {
+                flex-direction: row;
+                align-items: flex-end;
+            }
+            
+            .ingredient-details {
+                flex: 2;
+            }
+            
+            .library-item-header {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            
+            .library-actions {
+                margin-top: 0;
             }
         }
 
@@ -512,6 +570,62 @@
         .space-y-6 > * + * {
             margin-top: 24px;
         }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 12px;
+            }
+            
+            .header {
+                padding: 10px 0;
+            }
+            
+            .logo-text {
+                font-size: 18px;
+            }
+            
+            .logo-icon {
+                width: 36px;
+                height: 36px;
+            }
+            
+            .card-header, .card-content {
+                padding: 12px;
+            }
+            
+            .btn {
+                padding: 12px 16px;
+                font-size: 16px;
+            }
+            
+            .form-input {
+                padding: 16px;
+                font-size: 16px;
+            }
+            
+            .ingredient-name .form-input {
+                font-size: 18px;
+                padding: 16px;
+            }
+            
+            .results-title {
+                font-size: 18px;
+            }
+            
+            .ingredient-result, .total-row {
+                font-size: 16px;
+            }
+        }
+
+        /* Prevent zoom on focus for iOS */
+        @media screen and (-webkit-min-device-pixel-ratio:0) {
+            select:focus,
+            textarea:focus,
+            input:focus {
+                font-size: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -526,7 +640,7 @@
                 </div>
                 <button class="btn btn-outline" id="libraryToggle">
                     <i class="fas fa-book"></i>
-                    <span>Library</span>
+                    <span class="hidden-mobile">Library</span>
                 </button>
             </div>
         </div>
@@ -573,11 +687,8 @@
             <div class="grid grid-cols-2">
                 <!-- Left Column -->
                 <div class="space-y-6">
-                    <!-- Recipe Details Card -->
+                    <!-- Recipe Card (Removed "Recipe Details" title) -->
                     <div class="card">
-                        <div class="card-header">
-                            <h2 class="card-title">Recipe Details</h2>
-                        </div>
                         <div class="card-content">
                             <div class="form-group">
                                 <label class="form-label" for="recipeName">Enter Recipe Name</label>
@@ -595,21 +706,23 @@
                                         <div class="ingredient-name">
                                             <input type="text" class="form-input" placeholder="Ingredient name">
                                         </div>
-                                        <div class="ingredient-quantity">
-                                            <input type="number" step="0.1" class="form-input" placeholder="0">
+                                        <div class="ingredient-details">
+                                            <div class="ingredient-quantity">
+                                                <input type="number" step="0.1" class="form-input" placeholder="0">
+                                            </div>
+                                            <div class="ingredient-unit">
+                                                <select class="form-input">
+                                                    <option value="Milliliters">ML</option>
+                                                    <option value="Grams">Gm</option>
+                                                    <option value="Teaspoons">Tsp</option>
+                                                    <option value="Dashes">Dsh</option>
+                                                    <option value="Drops">Dps</option>
+                                                </select>
+                                            </div>
+                                            <button class="ingredient-remove" disabled>
+                                                <i class="fas fa-times"></i>
+                                            </button>
                                         </div>
-                                        <div class="ingredient-unit">
-                                            <select class="form-input">
-                                                <option value="Milliliters">Milliliters</option>
-                                                <option value="Grams">Grams</option>
-                                                <option value="Teaspoons">Teaspoons</option>
-                                                <option value="Dashes">Dashes</option>
-                                                <option value="Drops">Drops</option>
-                                            </select>
-                                        </div>
-                                        <button class="ingredient-remove" disabled>
-                                            <i class="fas fa-times"></i>
-                                        </button>
                                     </div>
                                 </div>
 
@@ -725,7 +838,7 @@
                             </h2>
                             <button class="btn" id="shareButton" style="background: black; color: white;">
                                 <i class="fas fa-share"></i>
-                                <span>Share</span>
+                                <span class="hidden-mobile">Share</span>
                             </button>
                         </div>
                         <div class="results-content">
@@ -757,7 +870,7 @@
     <div class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>Copyright ©  Batch Cal - By 
+                <p>Copyright © Batch Cal - By 
                     <a href="https://www.instagram.com/suraj.gg87/" class="footer-link" target="_blank">suraj</a>
                 </p>
             </div>
@@ -765,13 +878,13 @@
     </div>
 
     <script>
-        // Unit conversion constants (Ounces removed)
+        // Unit conversion constants with abbreviated names
         const UNITS = {
             Milliliters: 1,
+            Grams: 1,
             Teaspoons: 4.92892,
             Dashes: 0.616,
-            Drops: 0.05,
-            Grams: 1
+            Drops: 0.05
         };
 
         // Default state
@@ -927,24 +1040,26 @@
                                value="${ingredient.name}" 
                                oninput="updateIngredient(${index}, 'name', this.value)">
                     </div>
-                    <div class="ingredient-quantity">
-                        <input type="number" step="0.1" class="form-input" placeholder="0" 
-                               value="${ingredient.quantity}" 
-                               oninput="updateIngredient(${index}, 'quantity', this.value)">
+                    <div class="ingredient-details">
+                        <div class="ingredient-quantity">
+                            <input type="number" step="0.1" class="form-input" placeholder="0" 
+                                   value="${ingredient.quantity}" 
+                                   oninput="updateIngredient(${index}, 'quantity', this.value)">
+                        </div>
+                        <div class="ingredient-unit">
+                            <select class="form-input" onchange="updateIngredient(${index}, 'unit', this.value)">
+                                <option value="Milliliters" ${ingredient.unit === 'Milliliters' ? 'selected' : ''}>ML</option>
+                                <option value="Grams" ${ingredient.unit === 'Grams' ? 'selected' : ''}>Gm</option>
+                                <option value="Teaspoons" ${ingredient.unit === 'Teaspoons' ? 'selected' : ''}>Tsp</option>
+                                <option value="Dashes" ${ingredient.unit === 'Dashes' ? 'selected' : ''}>Dsh</option>
+                                <option value="Drops" ${ingredient.unit === 'Drops' ? 'selected' : ''}>Dps</option>
+                            </select>
+                        </div>
+                        <button class="ingredient-remove" ${state.ingredients.length === 1 ? 'disabled' : ''} 
+                                onclick="removeIngredient(${index})">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
-                    <div class="ingredient-unit">
-                        <select class="form-input" onchange="updateIngredient(${index}, 'unit', this.value)">
-                            <option value="Milliliters" ${ingredient.unit === 'Milliliters' ? 'selected' : ''}>Milliliters</option>
-                            <option value="Grams" ${ingredient.unit === 'Grams' ? 'selected' : ''}>Grams</option>
-                            <option value="Teaspoons" ${ingredient.unit === 'Teaspoons' ? 'selected' : ''}>Teaspoons</option>
-                            <option value="Dashes" ${ingredient.unit === 'Dashes' ? 'selected' : ''}>Dashes</option>
-                            <option value="Drops" ${ingredient.unit === 'Drops' ? 'selected' : ''}>Drops</option>
-                        </select>
-                    </div>
-                    <button class="ingredient-remove" ${state.ingredients.length === 1 ? 'disabled' : ''} 
-                            onclick="removeIngredient(${index})">
-                        <i class="fas fa-times"></i>
-                    </button>
                 `;
                 
                 ingredientsList.appendChild(ingredientRow);
