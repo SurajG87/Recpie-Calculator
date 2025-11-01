@@ -8,23 +8,25 @@
     <link rel="icon" href="logo.png">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add Futura font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #FFB347; /* Light orange */
-            --primary-dark: #FFA500; /* Slightly darker orange */
+            --primary-yellow: #FFD700; /* Yellow for titles */
+            --primary-white: #ffffff; /* White for smaller text */
             --bg-dark: #000000; /* Black background */
             --bg-card: #1a1a1a; /* Dark gray cards */
             --text-light: #ffffff; /* White text */
             --text-gray: #9ca3af; /* Light gray */
-            --border-light: rgba(255, 179, 71, 0.2); /* Light orange border */
-            --border-medium: rgba(255, 179, 71, 0.4); /* Medium orange border */
+            --border-light: rgba(255, 215, 0, 0.2); /* Light yellow border */
+            --border-medium: rgba(255, 215, 0, 0.4); /* Medium yellow border */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
@@ -34,12 +36,19 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            font-size: 15px; /* Base font size */
+            font-size: 15px;
             -webkit-text-size-adjust: 100%;
         }
 
+        /* Futura font for titles */
+        .futura-font {
+            font-family: 'Futura', 'Inter', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
         input, select, textarea, button {
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
         }
 
         .container {
@@ -49,9 +58,9 @@
             flex: 1;
         }
 
-        /* Header Styles */
+        /* Header Styles with magazine design */
         .header {
-            background: linear-gradient(to right, var(--bg-dark), var(--bg-card), var(--bg-dark));
+            background: var(--bg-dark);
             border-bottom: 1px solid var(--border-light);
             position: sticky;
             top: 0;
@@ -74,12 +83,12 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+            background: linear-gradient(to bottom right, var(--primary-yellow), #FFA500);
             border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(255, 179, 71, 0.2);
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.2);
             cursor: pointer;
             transition: all 0.3s ease;
             position: relative;
@@ -88,7 +97,7 @@
 
         .logo-icon:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(255, 179, 71, 0.3);
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
         }
 
         .logo-icon:hover::after {
@@ -101,17 +110,17 @@
             color: white;
             padding: 8px 12px;
             border-radius: 6px;
-            font-size: 13px; /* Increased from 12px */
+            font-size: 13px;
             white-space: nowrap;
             z-index: 1000;
         }
 
         .logo-text {
-            font-size: 19px; /* Increased from 18px */
+            font-size: 19px;
             font-weight: bold;
-            background: linear-gradient(to right, white, #d1d5db);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--primary-yellow);
+            font-family: 'Futura', 'Inter', sans-serif;
+            letter-spacing: 0.05em;
         }
 
         .btn {
@@ -124,7 +133,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             border: none;
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
             gap: 8px;
             min-height: 44px;
         }
@@ -136,18 +145,18 @@
         }
 
         .btn-outline:hover {
-            background-color: rgba(255, 179, 71, 0.1);
-            border-color: var(--primary);
+            background-color: rgba(255, 215, 0, 0.1);
+            border-color: var(--primary-yellow);
         }
 
         .btn-primary {
-            background-color: var(--primary);
+            background-color: var(--primary-yellow);
             color: black;
             font-weight: 600;
         }
 
         .btn-primary:hover {
-            background-color: var(--primary-dark);
+            background-color: #FFA500;
         }
 
         /* Card Styles */
@@ -166,9 +175,11 @@
         }
 
         .card-title {
-            font-size: 17px; /* Increased from 16px */
+            font-size: 17px;
             font-weight: 600;
-            color: var(--text-light);
+            color: var(--primary-yellow);
+            font-family: 'Futura', 'Inter', sans-serif;
+            letter-spacing: 0.05em;
         }
 
         .card-content {
@@ -183,7 +194,7 @@
         .form-label {
             display: block;
             margin-bottom: 8px;
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
             font-weight: 500;
             color: var(--text-light);
         }
@@ -195,20 +206,20 @@
             border: 1px solid var(--border-medium);
             border-radius: 8px;
             color: var(--text-light);
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
             transition: all 0.3s ease;
             min-height: 50px;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(255, 179, 71, 0.2);
+            border-color: var(--primary-yellow);
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
         }
 
         .form-input::placeholder {
             color: var(--text-gray);
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
         }
 
         /* Mobile-optimized ingredient rows */
@@ -228,7 +239,7 @@
         }
 
         .ingredient-name .form-input {
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
             padding: 16px;
             min-height: 56px;
         }
@@ -265,8 +276,8 @@
         }
 
         .ingredient-remove:hover {
-            color: var(--primary);
-            background-color: rgba(255, 179, 71, 0.1);
+            color: var(--primary-yellow);
+            background-color: rgba(255, 215, 0, 0.1);
         }
 
         /* Radio Group */
@@ -294,7 +305,7 @@
 
         .radio-input {
             margin-top: 2px;
-            accent-color: var(--primary);
+            accent-color: var(--primary-yellow);
             width: 20px;
             height: 20px;
             flex-shrink: 0;
@@ -309,19 +320,19 @@
             font-weight: 500;
             color: var(--text-light);
             margin-bottom: 4px;
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
         }
 
         .radio-description {
-            font-size: 13px; /* Increased from 12px */
+            font-size: 13px;
             color: var(--text-gray);
         }
 
         /* Results Panel */
         .results-panel {
-            background: linear-gradient(to bottom right, var(--primary), var(--primary-dark));
+            background: linear-gradient(to bottom right, var(--primary-yellow), #FFA500);
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(255, 179, 71, 0.4);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4);
             overflow: hidden;
         }
 
@@ -335,12 +346,14 @@
         }
 
         .results-title {
-            font-size: 19px; /* Increased from 18px */
+            font-size: 19px;
             font-weight: bold;
             color: black;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-family: 'Futura', 'Inter', sans-serif;
+            letter-spacing: 0.05em;
         }
 
         .results-content {
@@ -352,7 +365,7 @@
         }
 
         .results-section-title {
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
             font-weight: 600;
             color: black;
             text-transform: uppercase;
@@ -365,7 +378,7 @@
             justify-content: space-between;
             padding: 12px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
         }
 
         .ingredient-name {
@@ -384,7 +397,7 @@
             border-top: 2px solid rgba(0, 0, 0, 0.2);
             font-weight: bold;
             color: black;
-            font-size: 17px; /* Increased from 16px */
+            font-size: 17px;
         }
 
         /* Library Styles */
@@ -409,14 +422,16 @@
 
         .library-item-title {
             font-weight: 600;
-            color: var(--text-light);
-            font-size: 17px; /* Increased from 16px */
+            color: var(--primary-yellow);
+            font-size: 17px;
             margin-bottom: 8px;
+            font-family: 'Futura', 'Inter', sans-serif;
+            letter-spacing: 0.05em;
         }
 
         .library-item-ingredients {
             color: var(--text-gray);
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
             line-height: 1.5;
         }
 
@@ -440,13 +455,13 @@
         /* Alert */
         .alert {
             padding: 16px;
-            background-color: rgba(255, 179, 71, 0.2);
-            border: 1px solid var(--primary);
+            background-color: rgba(255, 215, 0, 0.2);
+            border: 1px solid var(--primary-yellow);
             border-radius: 8px;
             color: var(--text-light);
             margin-bottom: 20px;
             animation: slideIn 0.3s ease-out;
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
         }
 
         @keyframes slideIn {
@@ -502,17 +517,17 @@
         .footer-content {
             text-align: center;
             color: var(--text-gray);
-            font-size: 15px; /* Increased from 14px */
+            font-size: 15px;
         }
 
         .footer-link {
-            color: var(--primary);
+            color: var(--primary-yellow);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .footer-link:hover {
-            color: var(--primary-dark);
+            color: #FFA500;
             text-decoration: underline;
         }
 
@@ -530,7 +545,7 @@
         }
 
         .text-sm {
-            font-size: 13px; /* Increased from 12px */
+            font-size: 13px;
         }
 
         .w-full {
@@ -585,7 +600,7 @@
             }
             
             .logo-text {
-                font-size: 17px; /* Increased from 16px */
+                font-size: 17px;
             }
             
             .logo-icon {
@@ -599,25 +614,25 @@
             
             .btn {
                 padding: 12px 16px;
-                font-size: 15px; /* Increased from 14px */
+                font-size: 15px;
             }
             
             .form-input {
                 padding: 16px;
-                font-size: 15px; /* Increased from 14px */
+                font-size: 15px;
             }
             
             .ingredient-name .form-input {
-                font-size: 15px; /* Increased from 14px */
+                font-size: 15px;
                 padding: 16px;
             }
             
             .results-title {
-                font-size: 17px; /* Increased from 16px */
+                font-size: 17px;
             }
             
             .ingredient-result, .total-row {
-                font-size: 15px; /* Increased from 14px */
+                font-size: 15px;
             }
         }
 
@@ -626,7 +641,7 @@
             select:focus,
             textarea:focus,
             input:focus {
-                font-size: 15px; /* Increased from 14px */
+                font-size: 15px;
             }
         }
     </style>
@@ -639,11 +654,11 @@
                     <div class="logo-icon" id="resetButton">
                         <i class="fas fa-calculator"></i>
                     </div>
-                    <h1 class="logo-text">Batch Cal</h1>
+                    <h1 class="logo-text">BATCH CAL</h1>
                 </div>
                 <button class="btn btn-outline" id="libraryToggle">
                     <i class="fas fa-book"></i>
-                    <span class="hidden-mobile">Library</span>
+                    <span class="hidden-mobile">LIBRARY</span>
                 </button>
             </div>
         </div>
@@ -664,7 +679,7 @@
                     <div class="flex items-center justify-between">
                         <h2 class="card-title">
                             <i class="fas fa-book"></i>
-                            Recipe Library
+                            RECIPE LIBRARY
                         </h2>
                         <button class="btn btn-outline" id="closeLibrary">
                             <i class="fas fa-times"></i>
@@ -673,10 +688,10 @@
                 </div>
                 <div class="card-content">
                     <div id="emptyLibrary" class="text-center py-8">
-                        <div class="logo-icon mx-auto mb-4" style="background: rgba(255, 179, 71, 0.1);">
-                            <i class="fas fa-book text-primary"></i>
+                        <div class="logo-icon mx-auto mb-4" style="background: rgba(255, 215, 0, 0.1);">
+                            <i class="fas fa-book" style="color: var(--primary-yellow);"></i>
                         </div>
-                        <h3 class="text-lg font-semibold text-white mb-2">No Saved Recipes</h3>
+                        <h3 class="text-lg font-semibold text-white mb-2">NO SAVED RECIPES</h3>
                         <p class="text-gray text-sm">
                             Create and save your first recipe to see it here
                         </p>
@@ -694,12 +709,12 @@
                     <div class="card">
                         <div class="card-content">
                             <div class="form-group">
-                                <label class="form-label" for="recipeName">Enter Recipe Name</label>
-                                <input type="text" id="recipeName" class="form-input" placeholder="e.g., Negroni">
+                                <label class="form-label" for="recipeName">ENTER RECIPE NAME</label>
+                                <input type="text" id="recipeName" class="form-input" placeholder="e.g., NEGRONI">
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label">Add Ingredients</label>
+                                <label class="form-label">ADD INGREDIENTS</label>
                                 <p class="text-gray text-xs mb-4">
                                     Add all ingredients, specifying name, quantity, and unit. Use the remove button to delete.
                                 </p>
@@ -707,7 +722,7 @@
                                 <div id="ingredientsList">
                                     <div class="ingredient-row">
                                         <div class="ingredient-name">
-                                            <input type="text" class="form-input" placeholder="Ingredient name">
+                                            <input type="text" class="form-input" placeholder="INGREDIENT NAME">
                                         </div>
                                         <div class="ingredient-details">
                                             <div class="ingredient-quantity">
@@ -716,11 +731,11 @@
                                             <div class="ingredient-unit">
                                                 <select class="form-input">
                                                     <option value="Milliliters">ML</option>
-                                                    <option value="Grams">Gm</option>
-                                                    <option value="Teaspoons">Tsp</option>
-                                                    <option value="Dashes">Dsh</option>
-                                                    <option value="Drops">Dps</option>
-                                                    <option value="Pieces">Pcs</option> <!-- Added Pcs option -->
+                                                    <option value="Grams">GM</option>
+                                                    <option value="Teaspoons">TSP</option>
+                                                    <option value="Dashes">DSH</option>
+                                                    <option value="Drops">DPS</option>
+                                                    <option value="Pieces">PCS</option>
                                                 </select>
                                             </div>
                                             <button class="ingredient-remove" disabled>
@@ -733,11 +748,11 @@
                                 <div class="flex gap-2 mt-4">
                                     <button class="btn btn-primary flex-1" id="addIngredient">
                                         <i class="fas fa-plus"></i>
-                                        Add Ingredient
+                                        ADD INGREDIENT
                                     </button>
                                     <button class="btn btn-outline flex-1" id="saveRecipe">
                                         <i class="fas fa-save"></i>
-                                        Save Recipe
+                                        SAVE RECIPE
                                     </button>
                                 </div>
                             </div>
@@ -747,26 +762,26 @@
                     <!-- Scale Recipe Card -->
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Scale Recipe</h2>
+                            <h2 class="card-title">SCALE RECIPE</h2>
                         </div>
                         <div class="card-content">
                             <!-- Step 1: Choose Scaling Method -->
                             <div class="form-group">
-                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
-                                    Step 1: Choose Scaling Method
+                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3" style="color: var(--primary-yellow);">
+                                    STEP 1: CHOOSE SCALING METHOD
                                 </h3>
                                 <div class="radio-group">
                                     <label class="radio-item">
                                         <input type="radio" name="scalingMethod" value="servings" class="radio-input" checked>
                                         <div class="radio-label">
-                                            <div class="radio-title">Scale by Number of Servings</div>
+                                            <div class="radio-title">SCALE BY NUMBER OF SERVINGS</div>
                                             <div class="radio-description">Choose this if you know how many servings you need.</div>
                                         </div>
                                     </label>
                                     <label class="radio-item">
                                         <input type="radio" name="scalingMethod" value="volume" class="radio-input">
                                         <div class="radio-label">
-                                            <div class="radio-title">Scale by Total Volume (mL)</div>
+                                            <div class="radio-title">SCALE BY TOTAL VOLUME (ML)</div>
                                             <div class="radio-description">Ideal for filling a specific container or batch size.</div>
                                         </div>
                                     </label>
@@ -775,58 +790,58 @@
 
                             <!-- Step 2: Enter Quantity -->
                             <div class="form-group">
-                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
-                                    Step 2: Enter Quantity
+                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3" style="color: var(--primary-yellow);">
+                                    STEP 2: ENTER QUANTITY
                                 </h3>
                                 <div class="relative">
-                                    <input type="number" step="0.1" id="scaleQuantity" class="form-input" placeholder="Number of servings">
-                                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray text-sm" id="scaleUnit">servings</span>
+                                    <input type="number" step="0.1" id="scaleQuantity" class="form-input" placeholder="NUMBER OF SERVINGS">
+                                    <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray text-sm" id="scaleUnit">SERVINGS</span>
                                 </div>
                             </div>
 
                             <!-- Step 3: Add Dilution -->
                             <div class="form-group">
-                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3">
-                                    Step 3: Add Dilution (Optional)
+                                <h3 class="text-primary font-semibold text-sm uppercase tracking-wider mb-3" style="color: var(--primary-yellow);">
+                                    STEP 3: ADD DILUTION (OPTIONAL)
                                 </h3>
                                 <div class="radio-group">
                                     <label class="radio-item">
                                         <input type="radio" name="dilution" value="0" class="radio-input" checked>
                                         <div class="radio-label">
-                                            <div class="radio-title">0% (No Dilution)</div>
+                                            <div class="radio-title">0% (NO DILUTION)</div>
                                             <div class="radio-description">Best if you plan to shake or stir to order.</div>
                                         </div>
                                     </label>
                                     <label class="radio-item">
                                         <input type="radio" name="dilution" value="18" class="radio-input">
                                         <div class="radio-label">
-                                            <div class="radio-title">18% (Spirit-Driven)</div>
+                                            <div class="radio-title">18% (SPIRIT-DRIVEN)</div>
                                             <div class="radio-description">Best for strong drinks containing mainly spirits.</div>
                                         </div>
                                     </label>
                                     <label class="radio-item">
                                         <input type="radio" name="dilution" value="25" class="radio-input">
                                         <div class="radio-label">
-                                            <div class="radio-title">25% (Shaken Cocktails)</div>
+                                            <div class="radio-title">25% (SHAKEN COCKTAILS)</div>
                                             <div class="radio-description">Ideal for cocktails with fruit juices, dairy, or eggs.</div>
                                         </div>
                                     </label>
                                     <label class="radio-item">
                                         <input type="radio" name="dilution" value="custom" class="radio-input">
                                         <div class="radio-label">
-                                            <div class="radio-title">Custom Dilution</div>
+                                            <div class="radio-title">CUSTOM DILUTION</div>
                                             <div class="radio-description">Enter your own dilution percentage.</div>
                                         </div>
                                     </label>
                                 </div>
                                 <div id="customDilutionContainer" class="hidden mt-3">
-                                    <input type="number" step="0.1" id="customDilution" class="form-input" placeholder="Enter dilution percentage">
+                                    <input type="number" step="0.1" id="customDilution" class="form-input" placeholder="ENTER DILUTION PERCENTAGE">
                                 </div>
                             </div>
 
                             <button class="btn btn-primary w-full mt-6 py-4 text-lg font-bold" id="calculateButton">
                                 <i class="fas fa-calculator"></i>
-                                Calculate Scaled Recipe
+                                CALCULATE SCALED RECIPE
                             </button>
                         </div>
                     </div>
@@ -838,26 +853,26 @@
                         <div class="results-header">
                             <h2 class="results-title">
                                 <i class="fas fa-tint"></i>
-                                <span id="resultsRecipeName">Ready to Calculate</span>
+                                <span id="resultsRecipeName">READY TO CALCULATE</span>
                             </h2>
                             <button class="btn" id="shareButton" style="background: black; color: white;">
                                 <i class="fas fa-share"></i>
-                                <span class="hidden-mobile">Share</span>
+                                <span class="hidden-mobile">SHARE</span>
                             </button>
                         </div>
                         <div class="results-content">
                             <div id="emptyResults" class="text-center py-8">
-                                <div class="logo-icon mx-auto mb-4" style="background: rgba(255, 179, 71, 0.1);">
-                                    <i class="fas fa-sparkles text-primary"></i>
+                                <div class="logo-icon mx-auto mb-4" style="background: rgba(255, 215, 0, 0.1);">
+                                    <i class="fas fa-sparkles" style="color: black;"></i>
                                 </div>
-                                <h3 class="text-lg font-semibold text-black mb-2">Ready to Calculate</h3>
+                                <h3 class="text-lg font-semibold text-black mb-2">READY TO CALCULATE</h3>
                                 <p class="text-black text-sm">
                                     Enter your recipe details and click calculate to see the scaled results
                                 </p>
                             </div>
                             <div id="resultsContent" class="hidden">
                                 <div class="results-section">
-                                    <h3 class="results-section-title">Scaled Ingredients</h3>
+                                    <h3 class="results-section-title">SCALED INGREDIENTS</h3>
                                     <div id="resultsIngredients"></div>
                                 </div>
                                 <div class="results-section">
@@ -874,8 +889,8 @@
     <div class="footer">
         <div class="container">
             <div class="footer-content">
-                <p>Copyright © Batch Cal - By 
-                    <a href="https://www.instagram.com/suraj.gg87/" class="footer-link" target="_blank">suraj</a>
+                <p>COPYRIGHT © BATCH CAL - BY 
+                    <a href="https://www.instagram.com/suraj.gg87/" class="footer-link" target="_blank">SURAJ</a>
                 </p>
             </div>
         </div>
@@ -889,7 +904,7 @@
             Teaspoons: 4.92892,
             Dashes: 0.616,
             Drops: 0.05,
-            Pieces: 1  // Added Pieces unit
+            Pieces: 1
         };
 
         // Default state
@@ -1041,7 +1056,7 @@
                 
                 ingredientRow.innerHTML = `
                     <div class="ingredient-name">
-                        <input type="text" class="form-input" placeholder="Ingredient name" 
+                        <input type="text" class="form-input" placeholder="INGREDIENT NAME" 
                                value="${ingredient.name}" 
                                oninput="updateIngredient(${index}, 'name', this.value)">
                     </div>
@@ -1054,11 +1069,11 @@
                         <div class="ingredient-unit">
                             <select class="form-input" onchange="updateIngredient(${index}, 'unit', this.value)">
                                 <option value="Milliliters" ${ingredient.unit === 'Milliliters' ? 'selected' : ''}>ML</option>
-                                <option value="Grams" ${ingredient.unit === 'Grams' ? 'selected' : ''}>Gm</option>
-                                <option value="Teaspoons" ${ingredient.unit === 'Teaspoons' ? 'selected' : ''}>Tsp</option>
-                                <option value="Dashes" ${ingredient.unit === 'Dashes' ? 'selected' : ''}>Dsh</option>
-                                <option value="Drops" ${ingredient.unit === 'Drops' ? 'selected' : ''}>Dps</option>
-                                <option value="Pieces" ${ingredient.unit === 'Pieces' ? 'selected' : ''}>Pcs</option> <!-- Added Pcs option -->
+                                <option value="Grams" ${ingredient.unit === 'Grams' ? 'selected' : ''}>GM</option>
+                                <option value="Teaspoons" ${ingredient.unit === 'Teaspoons' ? 'selected' : ''}>TSP</option>
+                                <option value="Dashes" ${ingredient.unit === 'Dashes' ? 'selected' : ''}>DSH</option>
+                                <option value="Drops" ${ingredient.unit === 'Drops' ? 'selected' : ''}>DPS</option>
+                                <option value="Pieces" ${ingredient.unit === 'Pieces' ? 'selected' : ''}>PCS</option>
                             </select>
                         </div>
                         <button class="ingredient-remove" ${state.ingredients.length === 1 ? 'disabled' : ''} 
@@ -1094,17 +1109,17 @@
         // Update scale unit display
         function updateScaleUnit() {
             if (state.scalingMethod === 'servings') {
-                scaleUnitSpan.textContent = 'servings';
-                scaleQuantityInput.placeholder = 'Number of servings';
+                scaleUnitSpan.textContent = 'SERVINGS';
+                scaleQuantityInput.placeholder = 'NUMBER OF SERVINGS';
             } else {
-                scaleUnitSpan.textContent = 'mL';
-                scaleQuantityInput.placeholder = 'Total volume in mL';
+                scaleUnitSpan.textContent = 'ML';
+                scaleQuantityInput.placeholder = 'TOTAL VOLUME IN ML';
             }
         }
 
         // Update results recipe name
         function updateResultsRecipeName() {
-            resultsRecipeName.textContent = state.recipeName || 'Ready to Calculate';
+            resultsRecipeName.textContent = state.recipeName || 'READY TO CALCULATE';
         }
 
         // Calculate scaled recipe
@@ -1188,7 +1203,7 @@
                 ingredientElement.className = 'ingredient-result';
                 ingredientElement.innerHTML = `
                     <span class="ingredient-name">${ingredient.name}</span>
-                    <span class="ingredient-value">${ingredient.ml.toFixed(1)} ml</span>
+                    <span class="ingredient-value">${ingredient.ml.toFixed(1)} ML</span>
                 `;
                 resultsIngredients.appendChild(ingredientElement);
             });
@@ -1198,8 +1213,8 @@
                 const dilutionElement = document.createElement('div');
                 dilutionElement.className = 'ingredient-result';
                 dilutionElement.innerHTML = `
-                    <span class="ingredient-name">Water (Dilution)</span>
-                    <span class="ingredient-value">${state.results.dilution.toFixed(1)} ml</span>
+                    <span class="ingredient-name">WATER (DILUTION)</span>
+                    <span class="ingredient-value">${state.results.dilution.toFixed(1)} ML</span>
                 `;
                 resultsIngredients.appendChild(dilutionElement);
             }
@@ -1209,8 +1224,8 @@
             const totalElement = document.createElement('div');
             totalElement.className = 'total-row';
             totalElement.innerHTML = `
-                <span>Total Volume</span>
-                <span>${state.results.totalVolume.toFixed(1)} ml</span>
+                <span>TOTAL VOLUME</span>
+                <span>${state.results.totalVolume.toFixed(1)} ML</span>
             `;
             resultsTotals.appendChild(totalElement);
 
@@ -1222,7 +1237,7 @@
                     ? state.results.numServings.toFixed(2) 
                     : Math.round(state.results.numServings);
                 servingsElement.innerHTML = `
-                    <span>Servings</span>
+                    <span>SERVINGS</span>
                     <span>${servingsText}</span>
                 `;
                 resultsTotals.appendChild(servingsElement);
@@ -1299,7 +1314,7 @@
                             ${ingredientsHtml}
                         </div>
                         <div class="library-actions">
-                            <button class="btn btn-primary" onclick="loadRecipe('${recipe.id}')">Load</button>
+                            <button class="btn btn-primary" onclick="loadRecipe('${recipe.id}')">LOAD</button>
                             <button class="btn btn-danger" onclick="deleteRecipe('${recipe.id}')">
                                 <i class="fas fa-trash"></i>
                             </button>
@@ -1339,26 +1354,26 @@
         function shareRecipe() {
             if (!state.results) return;
 
-            let shareText = `🍸 ${state.recipeName || "Scaled Recipe"}\n\n`;
-            shareText += "Ingredients:\n";
+            let shareText = `🍸 ${state.recipeName || "SCALED RECIPE"}\n\n`;
+            shareText += "INGREDIENTS:\n";
             state.results.ingredients.forEach(ing => {
-                shareText += `• ${ing.name}: ${ing.ml.toFixed(1)} ml\n`;
+                shareText += `• ${ing.name}: ${ing.ml.toFixed(1)} ML\n`;
             });
             if (state.results.dilution > 0) {
-                shareText += `• Water (Dilution): ${state.results.dilution.toFixed(1)} ml\n`;
+                shareText += `• WATER (DILUTION): ${state.results.dilution.toFixed(1)} ML\n`;
             }
-            shareText += `\nTotal Volume: ${state.results.totalVolume.toFixed(1)} ml\n`;
+            shareText += `\nTOTAL VOLUME: ${state.results.totalVolume.toFixed(1)} ML\n`;
             if (state.results.numServings) {
                 const servingsText = state.scalingMethod === "volume" 
                     ? state.results.numServings.toFixed(2) 
                     : Math.round(state.results.numServings);
-                shareText += `Servings: ${servingsText}\n`;
+                shareText += `SERVINGS: ${servingsText}\n`;
             }
-            shareText += `\nMade with Batch Cal - By suraj`;
+            shareText += `\nMADE WITH BATCH CAL - BY SURAJ`;
 
             if (navigator.share) {
                 navigator.share({
-                    title: state.recipeName || "Scaled Recipe",
+                    title: state.recipeName || "SCALED RECIPE",
                     text: shareText
                 }).catch(err => {
                     copyToClipboard(shareText);
@@ -1372,7 +1387,7 @@
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(() => {
                 const originalText = shareButton.innerHTML;
-                shareButton.innerHTML = '<i class="fas fa-check"></i><span>Copied</span>';
+                shareButton.innerHTML = '<i class="fas fa-check"></i><span>COPIED</span>';
                 setTimeout(() => {
                     shareButton.innerHTML = originalText;
                 }, 2000);
