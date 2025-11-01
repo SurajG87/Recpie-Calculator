@@ -720,6 +720,7 @@
                                                     <option value="Teaspoons">Tsp</option>
                                                     <option value="Dashes">Dsh</option>
                                                     <option value="Drops">Dps</option>
+                                                    <option value="Pieces">Pcs</option> <!-- Added Pcs option -->
                                                 </select>
                                             </div>
                                             <button class="ingredient-remove" disabled>
@@ -887,7 +888,8 @@
             Grams: 1,
             Teaspoons: 4.92892,
             Dashes: 0.616,
-            Drops: 0.05
+            Drops: 0.05,
+            Pieces: 1  // Added Pieces unit
         };
 
         // Default state
@@ -1056,6 +1058,7 @@
                                 <option value="Teaspoons" ${ingredient.unit === 'Teaspoons' ? 'selected' : ''}>Tsp</option>
                                 <option value="Dashes" ${ingredient.unit === 'Dashes' ? 'selected' : ''}>Dsh</option>
                                 <option value="Drops" ${ingredient.unit === 'Drops' ? 'selected' : ''}>Dps</option>
+                                <option value="Pieces" ${ingredient.unit === 'Pieces' ? 'selected' : ''}>Pcs</option> <!-- Added Pcs option -->
                             </select>
                         </div>
                         <button class="ingredient-remove" ${state.ingredients.length === 1 ? 'disabled' : ''} 
